@@ -50,26 +50,26 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/icons8-hospital-100.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 120, 110));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-hospital-100.png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 110, 110));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/icons8-verified-drivers-78.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-verified-drivers-78.png"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 76, 70));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/icons8-diagnostics-64.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-diagnostics-64.png"))); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, -1, 80));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/icons8-ambulance-60.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 110, 100));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-ambulance-60.png"))); // NOI18N
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 80, 100));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/icons8-down-left-arrow-48.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-down-left-arrow-48.png"))); // NOI18N
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 70, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/icons8-left-2-48.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-left-2-48.png"))); // NOI18N
         jLabel9.setText("jLabel9");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 42, 36));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/icons8-arrow-up-48.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-arrow-up-48.png"))); // NOI18N
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
 
         jLabel11.setBackground(new java.awt.Color(54, 125, 118));
@@ -95,11 +95,11 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 230, -1));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 313, 230, 10));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/icons8-lock-24.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-lock-24.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 30, 30));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/icons8-user-24.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-user-24.png"))); // NOI18N
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 30, -1));
 
         jButton1.setBackground(new java.awt.Color(61, 118, 125));
