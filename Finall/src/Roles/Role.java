@@ -16,7 +16,7 @@ import javax.swing.JFrame;
  */
 public abstract class Role {
     
-    private static String[] roles = {"branch manager", "system admin", "customer", "librarian"};
+    private static String[] roles = {"ambulance system admin", "hospital system admin", "diagnostic system admin", "pharmacy system admin"};
     
     public static String[] getAllRoles() {
         return roles;

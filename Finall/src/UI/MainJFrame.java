@@ -5,6 +5,10 @@
 package UI;
 
 import ApplicationSystem.ApplicationSystem;
+import UI.AmbulanceLogin.AmbulanceLoginJFrame;
+import UI.DiagnosticsLogin.DiagnosticsLoginJFrame;
+import UI.HospitalLogin.HospitalLoginJFrame;
+import UI.PharmacyLogin.PharmacyLoginJFrame;
 import User.UserAccount;
 import javax.swing.JOptionPane;
 
@@ -156,6 +160,11 @@ public class MainJFrame extends javax.swing.JFrame {
         ambulanceBtn.setForeground(new java.awt.Color(255, 255, 255));
         ambulanceBtn.setText("Ambulance");
         ambulanceBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ambulanceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ambulanceBtnActionPerformed(evt);
+            }
+        });
         jPanel3.add(ambulanceBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 160, 30));
 
         diagnosticsBtn.setBackground(new java.awt.Color(61, 118, 125));
@@ -163,6 +172,11 @@ public class MainJFrame extends javax.swing.JFrame {
         diagnosticsBtn.setForeground(new java.awt.Color(255, 255, 255));
         diagnosticsBtn.setText("Diagnostics");
         diagnosticsBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        diagnosticsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diagnosticsBtnActionPerformed(evt);
+            }
+        });
         jPanel3.add(diagnosticsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 160, 30));
 
         hospitalBtn.setBackground(new java.awt.Color(61, 118, 125));
@@ -170,6 +184,11 @@ public class MainJFrame extends javax.swing.JFrame {
         hospitalBtn.setForeground(new java.awt.Color(255, 255, 255));
         hospitalBtn.setText("Hospital");
         hospitalBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        hospitalBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hospitalBtnActionPerformed(evt);
+            }
+        });
         jPanel3.add(hospitalBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 160, 30));
 
         pharmacyBtn.setBackground(new java.awt.Color(61, 118, 125));
@@ -177,6 +196,11 @@ public class MainJFrame extends javax.swing.JFrame {
         pharmacyBtn.setForeground(new java.awt.Color(255, 255, 255));
         pharmacyBtn.setText("Pharmacy");
         pharmacyBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pharmacyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pharmacyBtnActionPerformed(evt);
+            }
+        });
         jPanel3.add(pharmacyBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 160, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -227,6 +251,34 @@ public class MainJFrame extends javax.swing.JFrame {
                                            
 
     }//GEN-LAST:event_logInBtnActionPerformed
+
+    private void hospitalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalBtnActionPerformed
+        // TODO add your handling code here:
+        HospitalLoginJFrame h1 = new HospitalLoginJFrame();
+        h1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_hospitalBtnActionPerformed
+
+    private void ambulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceBtnActionPerformed
+        // TODO add your handling code here:
+        AmbulanceLoginJFrame a1 = new AmbulanceLoginJFrame();
+        a1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ambulanceBtnActionPerformed
+
+    private void pharmacyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmacyBtnActionPerformed
+        // TODO add your handling code here:
+        PharmacyLoginJFrame p1 = new PharmacyLoginJFrame();
+        p1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_pharmacyBtnActionPerformed
+
+    private void diagnosticsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosticsBtnActionPerformed
+        // TODO add your handling code here:
+        DiagnosticsLoginJFrame d1 = new DiagnosticsLoginJFrame();
+        d1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_diagnosticsBtnActionPerformed
 
     /**
      * @param args the command line arguments

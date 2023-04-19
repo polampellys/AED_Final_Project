@@ -4,6 +4,8 @@
  */
 package UI.DiagnosticsLogin;
 
+import UI.MainJFrame;
+
 /**
  *
  * @author suhasinipolampelly
@@ -15,6 +17,7 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
      */
     public DiagnosticsLoginJFrame() {
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -39,6 +42,7 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,6 +96,16 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
         jButton2.setText("Log In");
         jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
 
+        backBtn.setBackground(new java.awt.Color(61, 118, 125));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel3.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 100, 30));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -120,6 +134,13 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        MainJFrame m1 = new MainJFrame();
+        m1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +178,7 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;

@@ -4,6 +4,8 @@
  */
 package UI.HospitalLogin;
 
+import UI.MainJFrame;
+
 /**
  *
  * @author suhasinipolampelly
@@ -15,6 +17,7 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
      */
     public HospitalLoginJFrame() {
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -38,7 +41,8 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,10 +89,20 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-user-24.png"))); // NOI18N
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 30, -1));
 
-        jButton2.setBackground(new java.awt.Color(61, 118, 125));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Log In");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
+        backBtn.setBackground(new java.awt.Color(61, 118, 125));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel3.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 100, 30));
+
+        jButton3.setBackground(new java.awt.Color(61, 118, 125));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Log In");
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,6 +132,13 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        MainJFrame m1 = new MainJFrame();
+        m1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,7 +176,8 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
