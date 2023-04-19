@@ -71,7 +71,7 @@ public class AmbulanceLoginJFrame extends javax.swing.JFrame {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 120, 120));
 
         jLabel11.setBackground(new java.awt.Color(54, 125, 118));
-        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 20)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("AMBULANCE MANAGEMENT");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 320, 40));
