@@ -47,5 +47,13 @@ public class AmbulanceUserDirectory {
         return null;
     }
     
+    public Boolean checkUniqueUsername(String userName){
+        for (UserAccount user: this.ambulanceuseraccountlist){
+            if(user.getUsername().equals(userName)){
+                return false;
+            }
+        }
+        return true;
+    }
     
 }

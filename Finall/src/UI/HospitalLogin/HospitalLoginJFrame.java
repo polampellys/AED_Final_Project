@@ -7,6 +7,7 @@ package UI.HospitalLogin;
 import ApplicationSystem.ApplicationSystem;
 import UI.MainJFrame;
 import User.UserAccount;
+import static java.lang.System.console;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,6 +35,8 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
         this.applicationSystem = applicationSystem;
         
         this.userAccount = userAccount;
+        
+        
     }
 
     /**
@@ -164,8 +167,8 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Boolean foundUser = false;
-        
-        if(this.applicationSystem.getHospitalUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null){
+        String passText = new String(passwordField.getPassword());
+        if(this.applicationSystem.getHospitalUserAccountDirectory().authenticateUser(userNameField.getText(), passText) != null){
             UserAccount userAccount = this.applicationSystem.getHospitalUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
             foundUser = true;
             userAccount.getRole().createWorkArea(applicationSystem, userAccount);

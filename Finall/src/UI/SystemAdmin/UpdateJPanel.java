@@ -4,6 +4,9 @@
  */
 package UI.SystemAdmin;
 
+import ApplicationSystem.ApplicationSystem;
+import User.UserAccount;
+
 /**
  *
  * @author suhasinipolampelly
@@ -13,7 +16,7 @@ public class UpdateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form UpdateJPanel
      */
-    public UpdateJPanel() {
+    public UpdateJPanel(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
     }
 
