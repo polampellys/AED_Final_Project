@@ -4,6 +4,9 @@
  */
 package UI.SystemAdmin;
 
+import ApplicationSystem.ApplicationSystem;
+import User.UserAccount;
+
 /**
  *
  * @author suhasinipolampelly
@@ -13,7 +16,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewJPanel
      */
-    public ViewJPanel() {
+    public ViewJPanel(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
     }
 

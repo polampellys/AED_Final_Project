@@ -4,7 +4,9 @@
  */
 package UI.SystemAdmin;
 
+import ApplicationSystem.ApplicationSystem;
 import UI.MainJFrame;
+import User.UserAccount;
 
 /**
  *
@@ -15,8 +17,13 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
     /**
      * Creates new form SystemAdminJFrame
      */
-    public SystemAdminJFrame() {
+    ApplicationSystem applicationSystem;
+    UserAccount userAccount;
+    public SystemAdminJFrame(ApplicationSystem applicationSystem, UserAccount useraccount) {
         initComponents();
+        this.setVisible(true);
+        this.applicationSystem = applicationSystem;
+        this.userAccount = useraccount;
     }
 
     /**
@@ -124,28 +131,28 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
 
     private void deleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new DeleteJPanel());
+        jSplitPane1.setRightComponent(new DeleteJPanel(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_deleteUserBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        MainJFrame mj = new MainJFrame();
+        MainJFrame mj = new MainJFrame(this.applicationSystem, this.userAccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void createUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new CreateJPanel());
+        jSplitPane1.setRightComponent(new CreateJPanel(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_createUserBtnActionPerformed
 
     private void viewUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUserBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new ViewJPanel());
+        jSplitPane1.setRightComponent(new ViewJPanel(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_viewUserBtnActionPerformed
 
     private void updateUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new UpdateJPanel());
+        jSplitPane1.setRightComponent(new UpdateJPanel(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_updateUserBtnActionPerformed
 
     /**
@@ -178,7 +185,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SystemAdminJFrame().setVisible(true);
+                //new SystemAdminJFrame(applicationSystem, useraccount).setVisible(true);
             }
         });
     }
