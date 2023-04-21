@@ -4,6 +4,9 @@
  */
 package UI.SystemAdmin;
 
+import ApplicationSystem.ApplicationSystem;
+import User.UserAccount;
+
 /**
  *
  * @author suhasinipolampelly
@@ -13,8 +16,14 @@ public class DeleteJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DeleteJPanel
      */
-    public DeleteJPanel() {
+    
+    ApplicationSystem applicationSystem;
+    UserAccount userAccount;
+    
+    public DeleteJPanel(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
+        this.applicationSystem = applicationSystem;
+        this.userAccount = userAccount;
     }
 
     /**

@@ -158,7 +158,7 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-        MainJFrame m1 = new MainJFrame();
+        MainJFrame m1 = new MainJFrame(this.applicationSystem, this.userAccount);
         m1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_backBtnActionPerformed

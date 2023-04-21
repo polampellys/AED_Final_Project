@@ -163,7 +163,7 @@ public class AmbulanceLoginJFrame extends javax.swing.JFrame {
 
     private void backBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtn1ActionPerformed
         // TODO add your handling code here:
-        MainJFrame m1 = new MainJFrame();
+        MainJFrame m1 = new MainJFrame(this.applicationSystem, this.userAccount);
         m1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_backBtn1ActionPerformed

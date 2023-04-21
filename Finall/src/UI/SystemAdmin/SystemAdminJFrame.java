@@ -131,7 +131,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
 
     private void deleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new DeleteJPanel());
+        jSplitPane1.setRightComponent(new DeleteJPanel(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_deleteUserBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
