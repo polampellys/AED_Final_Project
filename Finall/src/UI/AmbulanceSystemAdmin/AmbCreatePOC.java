@@ -6,8 +6,11 @@ package UI.AmbulanceSystemAdmin;
 
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+
 import Roles.AmbulanceDriverRole;
 import Roles.AmbulancePOCRole;
+=======
+
 import Roles.AmbulanceSystemAdminRole;
 import Roles.HospitalSystemAdminRole;
 import Roles.Role;
@@ -34,10 +37,21 @@ public class AmbCreatePOC extends javax.swing.JPanel {
         this.applicationSystem = applicationSystem;
         this.userAccount = userAccount;
         
-        
+      
     }
     
     
+=======
+        populateDropdown();
+    }
+    
+    public void populateDropdown() {
+        jComboBox1.removeAllItems();
+        for (String rolename : Role.getAllRoles()) {
+            jComboBox1.addItem(rolename);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,6 +67,8 @@ public class AmbCreatePOC extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         createBtn = new javax.swing.JButton();
+=======
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -99,6 +115,11 @@ public class AmbCreatePOC extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(206, 206, 206)
                         .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                        .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -118,6 +139,10 @@ public class AmbCreatePOC extends javax.swing.JPanel {
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(98, 98, 98)
+=======
+                .addGap(32, 32, 32)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(createBtn)
                 .addContainerGap(98, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,11 +170,52 @@ public class AmbCreatePOC extends javax.swing.JPanel {
                  }
         }
             
+=======
+            //creating hospitalsystemadmin
+            if(jComboBox1.getSelectedItem().equals("hospital system admin")){
+                 if(this.applicationSystem.getHospitalUserAccountDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getHospitalUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new HospitalSystemAdminRole());
+                     //System.out.println("HI"+ this.applicationSystem.getHospitalUserAccountDirectory().getHospitaluseraccountlist().size());
+                     JOptionPane.showMessageDialog(null, "Created New Hospital Admin");
+                 }else{
+                        JOptionPane.showMessageDialog(null, "Hospital Admin with same credentials already exists");
+                 }
+             }
+            //creating ambulancesystemadmin
+            if(jComboBox1.getSelectedItem().equals("ambulance system admin")){
+                 if(this.applicationSystem.getAmbulanceUserAccountDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getAmbulanceUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new AmbulanceSystemAdminRole());
+                     JOptionPane.showMessageDialog(null, "Created New Ambulance Admin");
+                 }else{
+                        JOptionPane.showMessageDialog(null, "Ambulance Admin with same credentials already exists");
+                 }
+             }
+            //creating pharmacysystemadmin
+            if(jComboBox1.getSelectedItem().equals("pharmacy system admin")){
+                 if(this.applicationSystem.getPharmacyUserAccountDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getPharmacyUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new AmbulanceSystemAdminRole());
+                     JOptionPane.showMessageDialog(null, "Created New Pharmacy Admin");
+                 }else{
+                        JOptionPane.showMessageDialog(null, "Pharmacy Admin with same credentials already exists");
+                 }
+             }
+            //creating diagnosticsystemadmin
+            if(jComboBox1.getSelectedItem().equals("diagnostic system admin")){
+                 if(this.applicationSystem.getDiagnosticUserAccountDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getDiagnosticUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new AmbulanceSystemAdminRole());
+                     JOptionPane.showMessageDialog(null, "Created New Diagnostic Admin");
+                 }else{
+                        JOptionPane.showMessageDialog(null, "Diagnostic Admin with same credentials already exists");
+                 }
+             }
+        }
     }//GEN-LAST:event_createBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createBtn;
+=======
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

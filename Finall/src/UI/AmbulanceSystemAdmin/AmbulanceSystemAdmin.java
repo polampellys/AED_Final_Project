@@ -6,6 +6,7 @@ package UI.AmbulanceSystemAdmin;
 
 import ApplicationSystem.ApplicationSystem;
 import UI.AmbulanceLogin.AmbulanceLoginJFrame;
+=======
 import UI.MainJFrame;
 import User.UserAccount;
 
@@ -25,6 +26,7 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
         this.setVisible(true);
         this.applicationSystem = applicationSystem;
         this.userAccount = userAccount;
+=======
     }
 
     
@@ -169,6 +171,8 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
         AmbulanceLoginJFrame aj = new AmbulanceLoginJFrame(this.applicationSystem, this.userAccount);
+=======
+        MainJFrame mj = new MainJFrame(this.applicationSystem, this.userAccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void viewUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUserBtnActionPerformed

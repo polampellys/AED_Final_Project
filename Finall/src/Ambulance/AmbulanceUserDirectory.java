@@ -4,8 +4,11 @@
  */
 package Ambulance;
 
+
 import Roles.AmbulanceDriverRole;
 import Roles.AmbulancePOCRole;
+=======
+
 import Roles.Role;
 import User.UserAccount;
 import User.UserAccountDirectory;
@@ -17,6 +20,7 @@ import java.util.ArrayList;
  */
 public class AmbulanceUserDirectory {
     private ArrayList<UserAccount> ambulanceuseraccountlist;
+
     private DriverUserDirectory driverUserDirectory;
     private POCUserDirectory pocUserDirectory;
     
@@ -28,6 +32,11 @@ public class AmbulanceUserDirectory {
         
         this.driverUserDirectory.createUserAccount("driver", "driver", new AmbulanceDriverRole());
         this.pocUserDirectory.createUserAccount("Poc", "Poc", new AmbulancePOCRole());
+=======
+    
+    public AmbulanceUserDirectory(){
+        this.ambulanceuseraccountlist = new ArrayList<UserAccount>();
+
     }
 
     public ArrayList<UserAccount> getAmbulanceuseraccountlist() {
@@ -55,6 +64,8 @@ public class AmbulanceUserDirectory {
     }
 
     
+=======
+
     
     
     public UserAccount createUserAccount(String name, String password, Role role) {

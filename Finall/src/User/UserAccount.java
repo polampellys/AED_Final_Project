@@ -11,6 +11,8 @@ import Roles.Role;
  * @author saketh
  */
 public class UserAccount{
+=======
+public class UserAccount {
     private String accountId;
     private String username;
     private String password;
