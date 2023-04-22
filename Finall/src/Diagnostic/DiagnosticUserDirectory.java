@@ -14,9 +14,14 @@ import java.util.ArrayList;
  */
 public class DiagnosticUserDirectory {
     private ArrayList<UserAccount> diagnosticuseraccountlist;
+    private DiagnosticiansUserDirectory  diagnosticiansUserDirectory;
+    private VendorsUserDirectory vendorsUserDirectory;
+    
     
     public DiagnosticUserDirectory() {
         this.diagnosticuseraccountlist = new ArrayList<UserAccount>(); 
+        this.diagnosticiansUserDirectory= new DiagnosticiansUserDirectory();
+        this.vendorsUserDirectory = new VendorsUserDirectory();
     }
 
     public ArrayList<UserAccount> getDiagnosticuseraccountlist() {
@@ -25,6 +30,22 @@ public class DiagnosticUserDirectory {
 
     public void setDiagnosticuseraccountlist(ArrayList<UserAccount> diagnosticuseraccountlist) {
         this.diagnosticuseraccountlist = diagnosticuseraccountlist;
+    }
+
+    public DiagnosticiansUserDirectory getDiagnosticiansUserDirectory() {
+        return diagnosticiansUserDirectory;
+    }
+
+    public void setDiagnosticiansUserDirectory(DiagnosticiansUserDirectory diagnosticiansUserDirectory) {
+        this.diagnosticiansUserDirectory = diagnosticiansUserDirectory;
+    }
+
+    public VendorsUserDirectory getVendorsUserDirectory() {
+        return vendorsUserDirectory;
+    }
+
+    public void setVendorsUserDirectory(VendorsUserDirectory vendorsUserDirectory) {
+        this.vendorsUserDirectory = vendorsUserDirectory;
     }
     
     public UserAccount createUserAccount(String name, String password, Role role) {

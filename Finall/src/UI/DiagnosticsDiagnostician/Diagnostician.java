@@ -2,27 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package UI.HospitalSystemAdmin;
+package UI.DiagnosticsDiagnostician;
 
 import ApplicationSystem.ApplicationSystem;
-import UI.AmbulanceLogin.AmbulanceLoginJFrame;
-import UI.HospitalLogin.HospitalLoginJFrame;
+import UI.DiagnosticsLogin.DiagnosticsLoginJFrame;
 import User.UserAccount;
 
 /**
  *
- * @author suhasinipolampelly
+ * @author saketh
  */
-public class HospitalSystemAdmin extends javax.swing.JFrame {
+public class Diagnostician extends javax.swing.JFrame {
 
     /**
-     * Creates new form HospitalSystemAdmin
+     * Creates new form Diagnostician
      */
     ApplicationSystem applicationSystem;
     UserAccount userAccount;
-    public HospitalSystemAdmin(ApplicationSystem applicationSystem, UserAccount useraccount) {
+    public Diagnostician(ApplicationSystem applicationSystem, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
+        this.applicationSystem = applicationSystem;
+        this.userAccount = useraccount;
+        
+        this.jLabel2.setText(useraccount.getUsername());
     }
 
     /**
@@ -35,16 +38,22 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        logoutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Hospital System Admin");
+        jLabel1.setText("Diagnostician");
 
-        jButton1.setText("Logout");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("jLabel2");
+
+        logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
+        logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBtn.setText("LOGOUT");
+        logoutBtn.setBorder(null);
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                logoutBtnActionPerformed(evt);
             }
         });
 
@@ -55,31 +64,41 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
+                        .addGap(154, 154, 154)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(142, Short.MAX_VALUE))
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel2)))
+                .addContainerGap(168, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(165, 165, 165)
+                    .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(165, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(41, 41, 41))
+                .addGap(39, 39, 39)
+                .addComponent(jLabel2)
+                .addContainerGap(206, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(135, 135, 135)
+                    .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(135, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        HospitalLoginJFrame aj = new HospitalLoginJFrame(this.applicationSystem, this.userAccount);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        DiagnosticsLoginJFrame dj = new DiagnosticsLoginJFrame(this.applicationSystem, this.userAccount);
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,26 +117,27 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HospitalSystemAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Diagnostician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HospitalSystemAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Diagnostician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HospitalSystemAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Diagnostician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HospitalSystemAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Diagnostician.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new HospitalSystemAdmin(applicationSystem, useraccount).setVisible(true);
+                //new Diagnostician(applicationSystem, useraccount).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton logoutBtn;
     // End of variables declaration//GEN-END:variables
 }
