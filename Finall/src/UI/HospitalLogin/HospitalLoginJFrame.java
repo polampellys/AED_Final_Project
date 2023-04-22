@@ -62,6 +62,7 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        userComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,7 +117,7 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 100, 30));
+        jPanel3.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 100, 30));
 
         jButton3.setBackground(new java.awt.Color(61, 118, 125));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +127,12 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 100, 30));
+
+        userComboBox.setBackground(new java.awt.Color(61, 118, 125));
+        userComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        userComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Driver", "Poc" }));
+        jPanel3.add(userComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 351, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,6 +235,7 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JComboBox<String> userComboBox;
     private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
 }

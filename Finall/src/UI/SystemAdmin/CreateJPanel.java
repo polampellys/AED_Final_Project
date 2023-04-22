@@ -6,7 +6,9 @@ package UI.SystemAdmin;
 
 import ApplicationSystem.ApplicationSystem;
 import Roles.AmbulanceSystemAdminRole;
+import Roles.DiagnosticSystemAdminRole;
 import Roles.HospitalSystemAdminRole;
+import Roles.PharmacySystemAdminRole;
 import Roles.Role;
 import User.UserAccount;
 import javax.swing.JOptionPane;
@@ -186,7 +188,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             //creating pharmacysystemadmin
             if(jComboBox1.getSelectedItem().equals("pharmacy system admin")){
                  if(this.applicationSystem.getPharmacyUserAccountDirectory().checkUniqueUsername(userName)){
-                     this.applicationSystem.getPharmacyUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new AmbulanceSystemAdminRole());
+                     this.applicationSystem.getPharmacyUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new PharmacySystemAdminRole());
                      JOptionPane.showMessageDialog(null, "Created New Pharmacy Admin");
                  }else{
                         JOptionPane.showMessageDialog(null, "Pharmacy Admin with same credentials already exists");
@@ -195,7 +197,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             //creating diagnosticsystemadmin
             if(jComboBox1.getSelectedItem().equals("diagnostic system admin")){
                  if(this.applicationSystem.getDiagnosticUserAccountDirectory().checkUniqueUsername(userName)){
-                     this.applicationSystem.getDiagnosticUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new AmbulanceSystemAdminRole());
+                     this.applicationSystem.getDiagnosticUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new DiagnosticSystemAdminRole());
                      JOptionPane.showMessageDialog(null, "Created New Diagnostic Admin");
                  }else{
                         JOptionPane.showMessageDialog(null, "Diagnostic Admin with same credentials already exists");
