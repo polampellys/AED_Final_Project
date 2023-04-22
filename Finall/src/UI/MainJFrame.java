@@ -4,6 +4,14 @@
  */
 package UI;
 
+import ApplicationSystem.ApplicationSystem;
+import UI.AmbulanceLogin.AmbulanceLoginJFrame;
+import UI.DiagnosticsLogin.DiagnosticsLoginJFrame;
+import UI.HospitalLogin.HospitalLoginJFrame;
+import UI.PharmacyLogin.PharmacyLoginJFrame;
+import User.UserAccount;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author suhasinipolampelly
@@ -13,8 +21,25 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    ApplicationSystem applicationSystem;
+    UserAccount userAccount;
     public MainJFrame() {
         initComponents();
+        this.setVisible(true);
+        
+        
+        this.applicationSystem = ApplicationSystem.getInstance();
+        //System.out.println("Main Frame"+this.applicationSystem.getHospitalUserAccountDirectory().getHospitaluseraccountlist().size());
+
+    }
+    
+    public MainJFrame(ApplicationSystem applicationSystem, UserAccount userAccount){
+        initComponents();
+        this.setVisible(true);
+        
+        this.applicationSystem = applicationSystem;
+        
+        this.userAccount = userAccount;
     }
 
     /**
@@ -40,13 +65,13 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        userNameField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        logInBtn = new javax.swing.JButton();
         ambulanceBtn = new javax.swing.JButton();
         diagnosticsBtn = new javax.swing.JButton();
         hospitalBtn = new javax.swing.JButton();
@@ -101,17 +126,17 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(840, 540));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField2.setBackground(new java.awt.Color(61, 118, 125));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("Username");
-        jTextField2.setBorder(null);
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, 41));
+        userNameField.setBackground(new java.awt.Color(61, 118, 125));
+        userNameField.setForeground(new java.awt.Color(255, 255, 255));
+        userNameField.setText("Username");
+        userNameField.setBorder(null);
+        jPanel3.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, 41));
 
-        jPasswordField1.setBackground(new java.awt.Color(61, 118, 125));
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setText("Password");
-        jPasswordField1.setBorder(null);
-        jPanel3.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 210, 41));
+        passwordField.setBackground(new java.awt.Color(61, 118, 125));
+        passwordField.setForeground(new java.awt.Color(255, 255, 255));
+        passwordField.setText("Password");
+        passwordField.setBorder(null);
+        jPanel3.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 210, 41));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 230, -1));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 313, 230, 10));
 
@@ -122,16 +147,26 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-user-24.png"))); // NOI18N
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 30, -1));
 
-        jButton2.setBackground(new java.awt.Color(61, 118, 125));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Log In");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
+        logInBtn.setBackground(new java.awt.Color(61, 118, 125));
+        logInBtn.setForeground(new java.awt.Color(255, 255, 255));
+        logInBtn.setText("Log In");
+        logInBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logInBtnActionPerformed(evt);
+            }
+        });
+        jPanel3.add(logInBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
 
         ambulanceBtn.setBackground(new java.awt.Color(61, 118, 125));
         ambulanceBtn.setFont(new java.awt.Font("Kailasa", 1, 14)); // NOI18N
         ambulanceBtn.setForeground(new java.awt.Color(255, 255, 255));
         ambulanceBtn.setText("Ambulance");
         ambulanceBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ambulanceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ambulanceBtnActionPerformed(evt);
+            }
+        });
         jPanel3.add(ambulanceBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 160, 30));
 
         diagnosticsBtn.setBackground(new java.awt.Color(61, 118, 125));
@@ -139,6 +174,11 @@ public class MainJFrame extends javax.swing.JFrame {
         diagnosticsBtn.setForeground(new java.awt.Color(255, 255, 255));
         diagnosticsBtn.setText("Diagnostics");
         diagnosticsBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        diagnosticsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diagnosticsBtnActionPerformed(evt);
+            }
+        });
         jPanel3.add(diagnosticsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 160, 30));
 
         hospitalBtn.setBackground(new java.awt.Color(61, 118, 125));
@@ -146,6 +186,11 @@ public class MainJFrame extends javax.swing.JFrame {
         hospitalBtn.setForeground(new java.awt.Color(255, 255, 255));
         hospitalBtn.setText("Hospital");
         hospitalBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        hospitalBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hospitalBtnActionPerformed(evt);
+            }
+        });
         jPanel3.add(hospitalBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 160, 30));
 
         pharmacyBtn.setBackground(new java.awt.Color(61, 118, 125));
@@ -153,6 +198,11 @@ public class MainJFrame extends javax.swing.JFrame {
         pharmacyBtn.setForeground(new java.awt.Color(255, 255, 255));
         pharmacyBtn.setText("Pharmacy");
         pharmacyBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pharmacyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pharmacyBtnActionPerformed(evt);
+            }
+        });
         jPanel3.add(pharmacyBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 160, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -183,6 +233,54 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void logInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInBtnActionPerformed
+        // TODO add your handling code here:
+        Boolean foundUser = false;
+        
+        if(this.applicationSystem.getUseraccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null){
+            UserAccount userAccount = this.applicationSystem.getUseraccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            userAccount.getRole().createWorkArea(applicationSystem, userAccount);
+            this.setVisible(false);   
+        }
+        
+        if(!foundUser) {
+            JOptionPane.showMessageDialog(null, "Invalid Credentials");
+        }
+        
+    
+                                           
+
+    }//GEN-LAST:event_logInBtnActionPerformed
+
+    private void hospitalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalBtnActionPerformed
+        // TODO add your handling code here:
+        HospitalLoginJFrame h1 = new HospitalLoginJFrame(this.applicationSystem, this.userAccount);
+        h1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_hospitalBtnActionPerformed
+
+    private void ambulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceBtnActionPerformed
+        // TODO add your handling code here:
+        AmbulanceLoginJFrame a1 = new AmbulanceLoginJFrame(this.applicationSystem, this.userAccount);
+        a1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ambulanceBtnActionPerformed
+
+    private void pharmacyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmacyBtnActionPerformed
+        // TODO add your handling code here:
+        PharmacyLoginJFrame p1 = new PharmacyLoginJFrame(this.applicationSystem, this.userAccount);
+        p1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_pharmacyBtnActionPerformed
+
+    private void diagnosticsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosticsBtnActionPerformed
+        // TODO add your handling code here:
+        DiagnosticsLoginJFrame d1 = new DiagnosticsLoginJFrame(this.applicationSystem, this.userAccount);
+        d1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_diagnosticsBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,7 +321,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton ambulanceBtn;
     private javax.swing.JButton diagnosticsBtn;
     private javax.swing.JButton hospitalBtn;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -240,10 +337,11 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton logInBtn;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton pharmacyBtn;
+    private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
 }

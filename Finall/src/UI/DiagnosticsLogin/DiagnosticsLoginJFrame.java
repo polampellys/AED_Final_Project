@@ -4,6 +4,11 @@
  */
 package UI.DiagnosticsLogin;
 
+import ApplicationSystem.ApplicationSystem;
+import UI.MainJFrame;
+import User.UserAccount;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author suhasinipolampelly
@@ -13,8 +18,22 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
     /**
      * Creates new form DiagnosticsLoginJFrame
      */
+    ApplicationSystem applicationSystem;
+    UserAccount userAccount;
     public DiagnosticsLoginJFrame() {
         initComponents();
+        this.setVisible(true);
+        
+        this.applicationSystem = ApplicationSystem.getInstance();
+    }
+    
+    public DiagnosticsLoginJFrame (ApplicationSystem applicationSystem, UserAccount userAccount){
+        initComponents();
+        this.setVisible(true);
+        
+        this.applicationSystem = applicationSystem;
+        
+        this.userAccount = userAccount;
     }
 
     /**
@@ -33,12 +52,13 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,11 +92,11 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
         jTextField2.setBorder(null);
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, 41));
 
-        jPasswordField1.setBackground(new java.awt.Color(61, 118, 125));
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setText("Password");
-        jPasswordField1.setBorder(null);
-        jPanel3.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 210, 41));
+        passwordField.setBackground(new java.awt.Color(61, 118, 125));
+        passwordField.setForeground(new java.awt.Color(255, 255, 255));
+        passwordField.setText("Password");
+        passwordField.setBorder(null);
+        jPanel3.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 210, 41));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 230, -1));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 313, 230, 10));
 
@@ -90,7 +110,22 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(61, 118, 125));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Log In");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
+
+        backBtn.setBackground(new java.awt.Color(61, 118, 125));
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+        jPanel3.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,6 +155,29 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        MainJFrame m1 = new MainJFrame(this.applicationSystem, this.userAccount);
+        m1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Boolean foundUser = false;
+        
+        if(this.applicationSystem.getDiagnosticUserAccountDirectory().authenticateUser(jTextField2.getText(), passwordField.getText()) != null){
+            UserAccount userAccount = this.applicationSystem.getDiagnosticUserAccountDirectory().authenticateUser(jTextField2.getText(), passwordField.getText()); 
+            foundUser = true;
+            userAccount.getRole().createWorkArea(applicationSystem, userAccount);
+            this.setVisible(false);   
+        }
+        
+        if(!foundUser) {
+            JOptionPane.showMessageDialog(null, "Invalid Credentials");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +215,7 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -166,9 +225,9 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField passwordField;
     // End of variables declaration//GEN-END:variables
 }
