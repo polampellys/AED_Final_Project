@@ -6,6 +6,11 @@ package UI.AmbulanceSystemAdmin;
 
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+
+import Roles.AmbulanceDriverRole;
+import Roles.AmbulancePOCRole;
+=======
+
 import Roles.AmbulanceSystemAdminRole;
 import Roles.HospitalSystemAdminRole;
 import Roles.Role;
@@ -32,6 +37,11 @@ public class AmbCreatePOC extends javax.swing.JPanel {
         this.applicationSystem = applicationSystem;
         this.userAccount = userAccount;
         
+      
+    }
+    
+    
+=======
         populateDropdown();
     }
     
@@ -57,6 +67,7 @@ public class AmbCreatePOC extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         createBtn = new javax.swing.JButton();
+=======
         jComboBox1 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -103,6 +114,8 @@ public class AmbCreatePOC extends javax.swing.JPanel {
                             .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(206, 206, 206)
+                        .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
                         .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(189, 189, 189)
@@ -125,6 +138,8 @@ public class AmbCreatePOC extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
+                .addGap(98, 98, 98)
+=======
                 .addGap(32, 32, 32)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
@@ -145,6 +160,17 @@ public class AmbCreatePOC extends javax.swing.JPanel {
         }
         else{
             String userName = userNameField.getText();
+            
+            if(this.applicationSystem.getAmbulanceUserAccountDirectory().getPocUserDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getAmbulanceUserAccountDirectory().getPocUserDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new AmbulancePOCRole());
+                     //System.out.println("HI"+ this.applicationSystem.getHospitalUserAccountDirectory().getHospitaluseraccountlist().size());
+                     JOptionPane.showMessageDialog(null, "Created New Ambulance POC");
+                 }else{
+                        JOptionPane.showMessageDialog(null, "Ambulance POC with same credentials already exists");
+                 }
+        }
+            
+=======
             //creating hospitalsystemadmin
             if(jComboBox1.getSelectedItem().equals("hospital system admin")){
                  if(this.applicationSystem.getHospitalUserAccountDirectory().checkUniqueUsername(userName)){
@@ -188,6 +214,7 @@ public class AmbCreatePOC extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createBtn;
+=======
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
