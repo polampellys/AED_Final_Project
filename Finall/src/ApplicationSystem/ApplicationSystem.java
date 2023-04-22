@@ -37,7 +37,7 @@ public class ApplicationSystem {
          
          this.useraccountDirectory.createUserAccount("admin", "admin", new SystemAdminRole());
          this.ambulanceUserAccountDirectory.createUserAccount("admin", "admin", new AmbulanceSystemAdminRole());
-         this.hospitalUserAccountDirectory.createUserAccount("admin","admin", new HospitalSystemAdminRole());
+         
          this.pharmacyUserAccountDirectory.createUserAccount("admin", "admin", new PharmacySystemAdminRole());
          this.diagnosticUserAccountDirectory.createUserAccount("admin", "admin", new DiagnosticSystemAdminRole());
 

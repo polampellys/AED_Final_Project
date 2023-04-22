@@ -29,6 +29,8 @@ public class MainJFrame extends javax.swing.JFrame {
         
         
         this.applicationSystem = ApplicationSystem.getInstance();
+        //System.out.println("Main Frame"+this.applicationSystem.getHospitalUserAccountDirectory().getHospitaluseraccountlist().size());
+
     }
     
     public MainJFrame(ApplicationSystem applicationSystem, UserAccount userAccount){
@@ -254,28 +256,28 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void hospitalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalBtnActionPerformed
         // TODO add your handling code here:
-        HospitalLoginJFrame h1 = new HospitalLoginJFrame();
+        HospitalLoginJFrame h1 = new HospitalLoginJFrame(this.applicationSystem, this.userAccount);
         h1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_hospitalBtnActionPerformed
 
     private void ambulanceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ambulanceBtnActionPerformed
         // TODO add your handling code here:
-        AmbulanceLoginJFrame a1 = new AmbulanceLoginJFrame();
+        AmbulanceLoginJFrame a1 = new AmbulanceLoginJFrame(this.applicationSystem, this.userAccount);
         a1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_ambulanceBtnActionPerformed
 
     private void pharmacyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmacyBtnActionPerformed
         // TODO add your handling code here:
-        PharmacyLoginJFrame p1 = new PharmacyLoginJFrame();
+        PharmacyLoginJFrame p1 = new PharmacyLoginJFrame(this.applicationSystem, this.userAccount);
         p1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_pharmacyBtnActionPerformed
 
     private void diagnosticsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosticsBtnActionPerformed
         // TODO add your handling code here:
-        DiagnosticsLoginJFrame d1 = new DiagnosticsLoginJFrame();
+        DiagnosticsLoginJFrame d1 = new DiagnosticsLoginJFrame(this.applicationSystem, this.userAccount);
         d1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_diagnosticsBtnActionPerformed

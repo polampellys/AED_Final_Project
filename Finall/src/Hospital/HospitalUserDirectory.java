@@ -4,6 +4,7 @@
  */
 package Hospital;
 
+import Roles.HospitalSystemAdminRole;
 import Roles.Role;
 import User.UserAccount;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class HospitalUserDirectory {
 
     public HospitalUserDirectory() {
         this.hospitaluseraccountlist = new ArrayList<UserAccount>(); 
+        this.createUserAccount("admin","admin", new HospitalSystemAdminRole());
     }
 
     public ArrayList<UserAccount> getHospitaluseraccountlist() {
@@ -44,6 +46,13 @@ public class HospitalUserDirectory {
         return null;
     }
     
-    
+    public Boolean checkUniqueUsername(String userName){
+        for (UserAccount user: this.hospitaluseraccountlist){
+            if(user.getUsername().equals(userName)){
+                return false;
+            }
+        }
+        return true;
+    }
     
 }

@@ -43,4 +43,13 @@ public class UserAccountDirectory {
         }
         return null;
     }
+    
+    public Boolean checkUniqueUsername(String userName){
+        for (UserAccount user: this.useraccountlist){
+            if(user.getUsername().equals(userName)){
+                return false;
+            }
+        }
+        return true;
+    }
 }

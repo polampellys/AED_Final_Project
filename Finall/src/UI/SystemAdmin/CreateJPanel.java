@@ -4,6 +4,15 @@
  */
 package UI.SystemAdmin;
 
+import ApplicationSystem.ApplicationSystem;
+import Roles.AmbulanceSystemAdminRole;
+import Roles.DiagnosticSystemAdminRole;
+import Roles.HospitalSystemAdminRole;
+import Roles.PharmacySystemAdminRole;
+import Roles.Role;
+import User.UserAccount;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author suhasinipolampelly
@@ -13,8 +22,25 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
-    public CreateJPanel() {
+    
+    ApplicationSystem applicationSystem;
+    UserAccount userAccount;
+    
+    
+    public CreateJPanel(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
+        
+        this.applicationSystem = applicationSystem;
+        this.userAccount = userAccount;
+        
+        populateDropdown();
+    }
+    
+    public void populateDropdown() {
+        jComboBox1.removeAllItems();
+        for (String rolename : Role.getAllRoles()) {
+            jComboBox1.addItem(rolename);
+        }
     }
 
     /**
@@ -27,6 +53,12 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        passwordField = new javax.swing.JTextField();
+        userNameField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        createBtn = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -44,23 +76,124 @@ public class CreateJPanel extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jLabel1.setText("Username");
+
+        jLabel2.setText("Password");
+
+        createBtn.setText("Create");
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(56, 56, 56)
+                                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(173, 173, 173)
+                    .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(515, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(66, 66, 66)
+                .addComponent(jLabel1)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(32, 32, 32)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(createBtn)
+                .addContainerGap(98, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(252, 252, 252)
+                    .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(265, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+        // TODO add your handling code here:
+        if(userNameField.getText().isEmpty()||passwordField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"All Fields are Compulsory");
+        }
+        else{
+            String userName = userNameField.getText();
+            //creating hospitalsystemadmin
+            if(jComboBox1.getSelectedItem().equals("hospital system admin")){
+                 if(this.applicationSystem.getHospitalUserAccountDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getHospitalUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new HospitalSystemAdminRole());
+                     //System.out.println("HI"+ this.applicationSystem.getHospitalUserAccountDirectory().getHospitaluseraccountlist().size());
+                     JOptionPane.showMessageDialog(null, "Created New Hospital Admin");
+                 }else{
+                        JOptionPane.showMessageDialog(null, "Hospital Admin with same credentials already exists");
+                 }
+             }
+            //creating ambulancesystemadmin
+            if(jComboBox1.getSelectedItem().equals("ambulance system admin")){
+                 if(this.applicationSystem.getAmbulanceUserAccountDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getAmbulanceUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new AmbulanceSystemAdminRole());
+                     JOptionPane.showMessageDialog(null, "Created New Ambulance Admin");
+                 }else{
+                        JOptionPane.showMessageDialog(null, "Ambulance Admin with same credentials already exists");
+                 }
+             }
+            //creating pharmacysystemadmin
+            if(jComboBox1.getSelectedItem().equals("pharmacy system admin")){
+                 if(this.applicationSystem.getPharmacyUserAccountDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getPharmacyUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new PharmacySystemAdminRole());
+                     JOptionPane.showMessageDialog(null, "Created New Pharmacy Admin");
+                 }else{
+                        JOptionPane.showMessageDialog(null, "Pharmacy Admin with same credentials already exists");
+                 }
+             }
+            //creating diagnosticsystemadmin
+            if(jComboBox1.getSelectedItem().equals("diagnostic system admin")){
+                 if(this.applicationSystem.getDiagnosticUserAccountDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getDiagnosticUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new DiagnosticSystemAdminRole());
+                     JOptionPane.showMessageDialog(null, "Created New Diagnostic Admin");
+                 }else{
+                        JOptionPane.showMessageDialog(null, "Diagnostic Admin with same credentials already exists");
+                 }
+             }
+        }
+    }//GEN-LAST:event_createBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createBtn;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField passwordField;
+    private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
 }

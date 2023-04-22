@@ -43,4 +43,13 @@ public class PharmacyUserDirectory {
         }
         return null;
     }
+    
+    public Boolean checkUniqueUsername(String userName){
+        for (UserAccount user: this.pharmacyuseraccountlist){
+            if(user.getUsername().equals(userName)){
+                return false;
+            }
+        }
+        return true;
+    }
 }

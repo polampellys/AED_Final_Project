@@ -4,6 +4,8 @@
  */
 package Ambulance;
 
+import Roles.AmbulanceDriverRole;
+import Roles.AmbulancePOCRole;
 import Roles.Role;
 import User.UserAccount;
 import User.UserAccountDirectory;
@@ -15,9 +17,17 @@ import java.util.ArrayList;
  */
 public class AmbulanceUserDirectory {
     private ArrayList<UserAccount> ambulanceuseraccountlist;
+    private DriverUserDirectory driverUserDirectory;
+    private POCUserDirectory pocUserDirectory;
     
     public AmbulanceUserDirectory(){
         this.ambulanceuseraccountlist = new ArrayList<UserAccount>();
+        
+        this.driverUserDirectory = new DriverUserDirectory();
+        this.pocUserDirectory = new POCUserDirectory();
+        
+        this.driverUserDirectory.createUserAccount("driver", "driver", new AmbulanceDriverRole());
+        this.pocUserDirectory.createUserAccount("Poc", "Poc", new AmbulancePOCRole());
     }
 
     public ArrayList<UserAccount> getAmbulanceuseraccountlist() {
@@ -28,6 +38,23 @@ public class AmbulanceUserDirectory {
         this.ambulanceuseraccountlist = ambulanceuseraccountlist;
     }
 
+    public DriverUserDirectory getDriverUserDirectory() {
+        return driverUserDirectory;
+    }
+
+    public void setDriverUserDirectory(DriverUserDirectory driverUserDirectory) {
+        this.driverUserDirectory = driverUserDirectory;
+    }
+
+    public POCUserDirectory getPocUserDirectory() {
+        return pocUserDirectory;
+    }
+
+    public void setPocUserDirectory(POCUserDirectory pocUserDirectory) {
+        this.pocUserDirectory = pocUserDirectory;
+    }
+
+    
     
     
     public UserAccount createUserAccount(String name, String password, Role role) {
@@ -47,5 +74,13 @@ public class AmbulanceUserDirectory {
         return null;
     }
     
+    public Boolean checkUniqueUsername(String userName){
+        for (UserAccount user: this.ambulanceuseraccountlist){
+            if(user.getUsername().equals(userName)){
+                return false;
+            }
+        }
+        return true;
+    }
     
 }
