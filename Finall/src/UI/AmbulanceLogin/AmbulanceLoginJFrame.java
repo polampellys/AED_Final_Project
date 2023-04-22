@@ -4,6 +4,8 @@
  */
 package UI.AmbulanceLogin;
 
+import Ambulance.Driver;
+import Ambulance.POC;
 import ApplicationSystem.ApplicationSystem;
 import UI.MainJFrame;
 import User.UserAccount;
@@ -59,6 +61,7 @@ public class AmbulanceLoginJFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         backBtn1 = new javax.swing.JButton();
+        userComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,7 +123,7 @@ public class AmbulanceLoginJFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 100, 30));
 
         backBtn1.setBackground(new java.awt.Color(61, 118, 125));
         backBtn1.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,7 +133,12 @@ public class AmbulanceLoginJFrame extends javax.swing.JFrame {
                 backBtn1ActionPerformed(evt);
             }
         });
-        jPanel3.add(backBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 100, 30));
+        jPanel3.add(backBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 100, 30));
+
+        userComboBox.setBackground(new java.awt.Color(61, 118, 125));
+        userComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        userComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Driver", "Poc" }));
+        jPanel3.add(userComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 351, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -172,12 +180,32 @@ public class AmbulanceLoginJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         Boolean foundUser = false;
         
-        if(this.applicationSystem.getAmbulanceUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null){
+        String userType = (String) this.userComboBox.getSelectedItem();
+        
+        if("admin".equalsIgnoreCase(userType) && this.applicationSystem.getAmbulanceUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)
+        {
             UserAccount userAccount = this.applicationSystem.getAmbulanceUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
             foundUser = true;
             userAccount.getRole().createWorkArea(applicationSystem, userAccount);
             this.setVisible(false);   
         }
+        
+        if("driver".equalsIgnoreCase(userType) && (this.applicationSystem.getAmbulanceUserAccountDirectory().getDriverUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+            
+            Driver driver = this.applicationSystem.getAmbulanceUserAccountDirectory().getDriverUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            driver.getRole().createWorkArea(applicationSystem, driver);
+            this.setVisible(false); 
+        }
+        
+        if("poc".equalsIgnoreCase(userType) && (this.applicationSystem.getAmbulanceUserAccountDirectory().getPocUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+            
+            POC poc = this.applicationSystem.getAmbulanceUserAccountDirectory().getPocUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            poc.getRole().createWorkArea(applicationSystem, poc);
+            this.setVisible(false); 
+        }
+        
         
         if(!foundUser) {
             JOptionPane.showMessageDialog(null, "Invalid Credentials");
@@ -237,6 +265,7 @@ public class AmbulanceLoginJFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JComboBox<String> userComboBox;
     private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
 }

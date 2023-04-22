@@ -23,6 +23,8 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
     public AmbulanceSystemAdmin(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
         this.setVisible(true);
+        this.applicationSystem = applicationSystem;
+        this.userAccount = userAccount;
     }
 
     
