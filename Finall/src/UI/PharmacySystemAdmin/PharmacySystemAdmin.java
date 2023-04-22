@@ -132,7 +132,7 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
 
     private void viewUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUserBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new PharmaCreateCompany(this.applicationSystem, this.userAccount));
+        jSplitPane1.setRightComponent(new PharmaView(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_viewUserBtnActionPerformed
 
     private void createUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserBtnActionPerformed
