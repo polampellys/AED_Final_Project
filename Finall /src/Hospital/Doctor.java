@@ -4,6 +4,8 @@
  */
 package Hospital;
 
+import Patient.DiagnosticRequestDirectory;
+import Patient.PatientDirectory;
 import Roles.Role;
 import User.UserAccount;
 
@@ -17,9 +19,14 @@ public class Doctor extends UserAccount {
     
     private static int counter = 0;
     
+    private PatientDirectory patientDirectory;
+    private DiagnosticRequestDirectory diagrequestDirectory;
+    
     public Doctor(String username, String password, Role role) {
         super(username, password, role);
         this.accountId = "user" + this.counter++;
+        this.patientDirectory = new PatientDirectory();
+        this.diagrequestDirectory = new DiagnosticRequestDirectory();
     }
 
     public String getAccountId() {
@@ -36,6 +43,22 @@ public class Doctor extends UserAccount {
 
     public static void setCounter(int counter) {
         Doctor.counter = counter;
+    }
+
+    public PatientDirectory getPatientDirectory() {
+        return patientDirectory;
+    }
+
+    public void setPatientDirectory(PatientDirectory patientDirectory) {
+        this.patientDirectory = patientDirectory;
+    }
+
+    public DiagnosticRequestDirectory getDiagrequestDirectory() {
+        return diagrequestDirectory;
+    }
+
+    public void setDiagrequestDirectory(DiagnosticRequestDirectory diagrequestDirectory) {
+        this.diagrequestDirectory = diagrequestDirectory;
     }
     
     

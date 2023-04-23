@@ -17,10 +17,15 @@ public class Vendors extends UserAccount {
     
     private static int counter = 0;
     private String company;
+    
+    private int lends = 0;
+    
+    private MachineDirectory machineDirectory;
 
     public Vendors(String username, String password, Role role) {
         super(username, password, role);
         this.accountId = "user" + this.counter++;
+        this.machineDirectory = new MachineDirectory();
         
     }
 
@@ -47,10 +52,21 @@ public class Vendors extends UserAccount {
     public void setCompany(String company) {
         this.company = company;
     }
+
+    public MachineDirectory getMachineDirectory() {
+        return machineDirectory;
+    }
+
+    public void setMachineDirectory(MachineDirectory machineDirectory) {
+        this.machineDirectory = machineDirectory;
+    }
     
     
     
-    
+    public void increaselends()
+    {
+        lends++;
+    }
     
     
     

@@ -11,6 +11,7 @@ package Ambulance;
 public class AssignedVehicles {
     Driver driver;
     Vehicle vehicle;
+    String Status;
     
     public AssignedVehicles(){
         
@@ -19,6 +20,7 @@ public class AssignedVehicles {
     public AssignedVehicles(Driver driver, Vehicle vehicle){
         this.driver = driver;
         this.vehicle = vehicle;
+        this.Status = "Avaialable";
     }
 
     public Driver getDriver() {
@@ -36,6 +38,16 @@ public class AssignedVehicles {
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    
     
     
 }

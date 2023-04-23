@@ -5,7 +5,8 @@
 package Roles;
 
 import ApplicationSystem.ApplicationSystem;
-import UI.Receptionist.Receptionist;
+import UI.HospitalReceptionist.Receptionist;
+
 import User.UserAccount;
 import javax.swing.JFrame;
 

@@ -6,8 +6,10 @@ package UI.DiagnosticsDiagnostician;
 
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+import Diagnostic.AssignedMachine;
 import Diagnostic.Diagnosticians;
 import Diagnostic.Machine;
+import Diagnostic.Vendors;
 import User.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -32,14 +34,16 @@ public class DiaLendMachines extends javax.swing.JPanel {
         this.applicationSystem = applicationSystem;
         this.diagnostician = (Diagnosticians) userAccount;
         this.MachineTableModel = (DefaultTableModel) jTable1.getModel();
-        
+         populateVendors();
         populateTable();
+       
         
     }
     
     public void populateTable(){
         MachineTableModel.setRowCount(0);
-        for(Machine machine : applicationSystem.getDiagnosticUserAccountDirectory().getMachineDirectory().getMachinelist()){
+        Vendors vendor= (Vendors) jComboBox1.getSelectedItem();
+        for(Machine machine : vendor.getMachineDirectory().getMachinelist()){
             Object rows[] = new Object[3];
             rows[0] = machine.getId();
             rows[1] = machine.getName();
@@ -49,16 +53,12 @@ public class DiaLendMachines extends javax.swing.JPanel {
         }
     }
     
-    public void populateDiagnostician(){
-        DiagTableModel.setRowCount(0);
-        for(Diagnosticians diag: applicationSystem.getDiagnosticUserAccountDirectory().getDiagnosticiansUserDirectory().getUseraccountlist()){
-            Object rows[] = new Object[2];
-            rows[0] = diag.getUsername();
-            
-            DiagTableModel.addRow(rows);
+    public void populateVendors()
+    {
+        for(Vendors vendor : this.applicationSystem.getDiagnosticUserAccountDirectory().getVendorsUserDirectory().getUseraccountlist())
+        {
+            this.jComboBox1.addItem(vendor);
         }
-        
-        
     }
 
     /**
@@ -75,6 +75,7 @@ public class DiaLendMachines extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -127,6 +128,12 @@ public class DiaLendMachines extends javax.swing.JPanel {
             }
         });
 
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,11 +142,14 @@ public class DiaLendMachines extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
+                        .addGap(348, 348, 348)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(235, 235, 235)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(348, 348, 348)
-                        .addComponent(jButton1)))
+                        .addGap(330, 330, 330)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -147,17 +157,20 @@ public class DiaLendMachines extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int row = jTable1.getSelectedRow();
+        Vendors vendor= (Vendors) jComboBox1.getSelectedItem();
         
         
         if(row == -1)
@@ -166,21 +179,29 @@ public class DiaLendMachines extends javax.swing.JPanel {
             return;
         }
         
-        Machine machine = applicationSystem.getDiagnosticUserAccountDirectory().getMachineDirectory().getMachinelist().get(row);
+        Machine machine = vendor.getMachineDirectory().getMachinelist().get(row);
         if(!machine.isAvailable()){
-            JOptionPane.showMessageDialog(null,"Selected Machine is nor Available", "Select Warning", 2);
+            JOptionPane.showMessageDialog(null,"Selected Machine is not Available", "Select Warning", 2);
         return;
         }
         
         machine.setAvailable(false);
-        machine.setDiagnostician(diagnostician);
+        AssignedMachine am = diagnostician.getAssignedMachineDirectory().assignedMachine(machine, diagnostician);
         
+        vendor.increaselends();
         
+        JOptionPane.showMessageDialog(null, "Machine Lent Succefully");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<Vendors> jComboBox1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

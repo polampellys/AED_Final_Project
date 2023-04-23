@@ -4,6 +4,7 @@
  */
 package Pharmacy;
 
+import Patient.PharmacyRequestDirectory;
 import Roles.Role;
 import User.UserAccount;
 
@@ -19,12 +20,14 @@ public class Store extends UserAccount {
     
     private MedicineRequestDirectory medicineRequestDirectory;
     private MedicineDirectory medicineDirectory;
+    private PharmacyRequestDirectory pharmacyrequestDirectory;
     
     public Store(String username, String password, Role role) {
         super(username, password, role);
         this.medicineRequestDirectory = new MedicineRequestDirectory();
         this.accountId = "user" + this.counter++;
         this.medicineDirectory = new MedicineDirectory();
+        this.pharmacyrequestDirectory = new PharmacyRequestDirectory();
     }
 
     public String getAccountId() {
@@ -59,7 +62,14 @@ public class Store extends UserAccount {
     public void setMedicineDirectory(MedicineDirectory medicineDirectory) {
         this.medicineDirectory = medicineDirectory;
     }
-    
+
+    public PharmacyRequestDirectory getPharmacyrequestDirectory() {
+        return pharmacyrequestDirectory;
+    }
+
+    public void setPharmacyrequestDirectory(PharmacyRequestDirectory pharmacyrequestDirectory) {
+        this.pharmacyrequestDirectory = pharmacyrequestDirectory;
+    }
     
     public void updateMedicine(String medicineName, int quantity)
     {

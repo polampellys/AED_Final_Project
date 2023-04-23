@@ -7,7 +7,9 @@ package UI.DiagnosticsVendor;
 import UI.DiagnosticsDiagnostician.*;
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+import Diagnostic.Diagnosticians;
 import Diagnostic.Machine;
+import Diagnostic.Vendors;
 import User.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,20 +25,20 @@ public class DiaAddMachines extends javax.swing.JPanel {
      */
     
     ApplicationSystem applicationSystem;
-    UserAccount userAccount;
+    Vendors vendor;
     DefaultTableModel MachineTableModel;
     
     public DiaAddMachines(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
         this.applicationSystem = applicationSystem;
-        this.userAccount = userAccount;
+        this.vendor = (Vendors)userAccount;
         this.MachineTableModel = (DefaultTableModel) jTable1.getModel();
         populateTable();
     }
     
     public void populateTable(){
         MachineTableModel.setRowCount(0);
-        for(Machine machine : applicationSystem.getDiagnosticUserAccountDirectory().getMachineDirectory().getMachinelist()){
+        for(Machine machine : vendor.getMachineDirectory().getMachinelist()){
             Object rows[] = new Object[2];
             rows[0] = machine.getId();
             rows[1] = machine.getName();
@@ -174,8 +176,8 @@ public class DiaAddMachines extends javax.swing.JPanel {
         else{
             int number = Integer.valueOf(jTextField1.getText());
             
-            if(this.applicationSystem.getDiagnosticUserAccountDirectory().getMachineDirectory().checkUniqueMachineNumber(number)){
-                     this.applicationSystem.getDiagnosticUserAccountDirectory().getMachineDirectory().createMachine(jTextField2.getText(), number);
+            if(vendor.getMachineDirectory().checkUniqueMachineNumber(number)){
+                     vendor.getMachineDirectory().createMachine(jTextField2.getText(), number);
                      //System.out.println("HI"+ this.applicationSystem.getHospitalUserAccountDirectory().getHospitaluseraccountlist().size());
                      JOptionPane.showMessageDialog(null, "Created New Machine");
                  }else{

@@ -35,15 +35,75 @@ public class Doctor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        prescribeDiagnosticsBtn = new javax.swing.JButton();
+        prescribeMedicineBtn = new javax.swing.JButton();
+        viewReportsBtn = new javax.swing.JButton();
+        dashboardBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Doctor");
+        jSplitPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jSplitPane1.setPreferredSize(new java.awt.Dimension(1280, 640));
 
-        jLabel2.setText("jLabel2");
+        jPanel1.setBackground(new java.awt.Color(61, 118, 125));
+        jPanel1.setMinimumSize(new java.awt.Dimension(240, 640));
+        jPanel1.setPreferredSize(new java.awt.Dimension(240, 640));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Doctor");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 170, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-user-24.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 40));
+
+        prescribeDiagnosticsBtn.setBackground(new java.awt.Color(61, 118, 125));
+        prescribeDiagnosticsBtn.setForeground(new java.awt.Color(255, 255, 255));
+        prescribeDiagnosticsBtn.setText("Prescribe Diagnostics");
+        prescribeDiagnosticsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prescribeDiagnosticsBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(prescribeDiagnosticsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
+
+        prescribeMedicineBtn.setBackground(new java.awt.Color(61, 118, 125));
+        prescribeMedicineBtn.setForeground(new java.awt.Color(255, 255, 255));
+        prescribeMedicineBtn.setText("Prescribe Medicine");
+        prescribeMedicineBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prescribeMedicineBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(prescribeMedicineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
+
+        viewReportsBtn.setBackground(new java.awt.Color(61, 118, 125));
+        viewReportsBtn.setForeground(new java.awt.Color(255, 255, 255));
+        viewReportsBtn.setText("View Reports");
+        viewReportsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewReportsBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(viewReportsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
+
+        dashboardBtn.setBackground(new java.awt.Color(61, 118, 125));
+        dashboardBtn.setForeground(new java.awt.Color(255, 255, 255));
+        dashboardBtn.setText("Dashboard");
+        dashboardBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -54,48 +114,45 @@ public class Doctor extends javax.swing.JFrame {
                 logoutBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, 70, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel2)))
-                .addContainerGap(210, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(165, 165, 165)
-                    .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(165, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(51, 51, 51)
-                .addComponent(jLabel2)
-                .addContainerGap(190, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(135, 135, 135)
-                    .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(135, Short.MAX_VALUE)))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-logout-25.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 29, 34));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-doctor-80.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+
+        jSplitPane1.setLeftComponent(jPanel1);
+
+        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void prescribeDiagnosticsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prescribeDiagnosticsBtnActionPerformed
+        // TODO add your handling code here:
+                jSplitPane1.setRightComponent(new DocPrescribeDiagnostics(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_prescribeDiagnosticsBtnActionPerformed
+
+    private void prescribeMedicineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prescribeMedicineBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new DocPrescribeMedicine(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_prescribeMedicineBtnActionPerformed
+
+    private void viewReportsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewReportsBtnActionPerformed
+        // TODO add your handling code here:
+                jSplitPane1.setRightComponent(new DocViewReports(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_viewReportsBtnActionPerformed
+
+    private void dashboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnActionPerformed
+        // TODO add your handling code here:
+                jSplitPane1.setRightComponent(new DocDashboard(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_dashboardBtnActionPerformed
+
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        HospitalLoginJFrame aj = new HospitalLoginJFrame(this.applicationSystem, this.userAccount);
+        HospitalLoginJFrame hj = new HospitalLoginJFrame(this.applicationSystem, this.userAccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**
@@ -134,8 +191,16 @@ public class Doctor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton dashboardBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JButton prescribeDiagnosticsBtn;
+    private javax.swing.JButton prescribeMedicineBtn;
+    private javax.swing.JButton viewReportsBtn;
     // End of variables declaration//GEN-END:variables
 }

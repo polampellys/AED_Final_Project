@@ -7,6 +7,7 @@ package ApplicationSystem;
 import Ambulance.AmbulanceUserDirectory;
 import Diagnostic.DiagnosticUserDirectory;
 import Hospital.HospitalUserDirectory;
+import Patient.PatientUserDirectory;
 import Pharmacy.PharmacyUserDirectory;
 import Roles.AmbulanceSystemAdminRole;
 import Roles.DiagnosticSystemAdminRole;
@@ -26,6 +27,7 @@ public class ApplicationSystem {
     private HospitalUserDirectory hospitalUserAccountDirectory;
     private PharmacyUserDirectory pharmacyUserAccountDirectory;
     private DiagnosticUserDirectory diagnosticUserAccountDirectory;
+    private PatientUserDirectory patientUserDirectory;
     
     public ApplicationSystem(){
          this.useraccountDirectory = new UserAccountDirectory();
@@ -33,6 +35,7 @@ public class ApplicationSystem {
          this.hospitalUserAccountDirectory = new HospitalUserDirectory();
          this.pharmacyUserAccountDirectory = new PharmacyUserDirectory();
          this.diagnosticUserAccountDirectory = new DiagnosticUserDirectory();
+         this.patientUserDirectory = new PatientUserDirectory();
          
          
          this.useraccountDirectory.createUserAccount("admin", "admin", new SystemAdminRole());
@@ -82,8 +85,14 @@ public class ApplicationSystem {
     public void setDiagnosticUserAccountDirectory(DiagnosticUserDirectory diagnosticUserAccountDirectory) {
         this.diagnosticUserAccountDirectory = diagnosticUserAccountDirectory;
     }
-    
-    
+
+    public PatientUserDirectory getPatientUserDirectory() {
+        return patientUserDirectory;
+    }
+
+    public void setPatientUserDirectory(PatientUserDirectory patientUserDirectory) {
+        this.patientUserDirectory = patientUserDirectory;
+    }
     
     
     public boolean checkIfCustomerExists(String name){

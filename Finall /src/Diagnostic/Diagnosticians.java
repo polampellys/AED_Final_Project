@@ -4,6 +4,7 @@
  */
 package Diagnostic;
 
+import Patient.DiagnosticRequestDirectory;
 import Roles.Role;
 import User.UserAccount;
 
@@ -17,9 +18,16 @@ public class Diagnosticians extends UserAccount {
     
     private static int counter = 0;
     
+    private int tests = 0;
+    
+    private DiagnosticRequestDirectory diagRequestDirectory;
+    private AssignedMachineDirectory assignedMachineDirectory;
+    
     public Diagnosticians(String username, String password, Role role) {
         super(username, password, role);
         this.accountId = "user" + this.counter++;
+        this.diagRequestDirectory = new DiagnosticRequestDirectory();
+        this.assignedMachineDirectory = new AssignedMachineDirectory();
     }
 
     public String getAccountId() {
@@ -37,7 +45,27 @@ public class Diagnosticians extends UserAccount {
     public static void setCounter(int counter) {
         Diagnosticians.counter = counter;
     }
+
+    public DiagnosticRequestDirectory getDiagRequestDirectory() {
+        return diagRequestDirectory;
+    }
+
+    public void setDiagRequestDirectory(DiagnosticRequestDirectory diagRequestDirectory) {
+        this.diagRequestDirectory = diagRequestDirectory;
+    }
+
+    public AssignedMachineDirectory getAssignedMachineDirectory() {
+        return assignedMachineDirectory;
+    }
+
+    public void setAssignedMachineDirectory(AssignedMachineDirectory assignedMachineDirectory) {
+        this.assignedMachineDirectory = assignedMachineDirectory;
+    }
     
+    public void increasetests()
+    {
+        tests++;
+    }
     
     
 }

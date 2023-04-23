@@ -7,7 +7,11 @@ package UI.PharmacyStore;
 import UI.PhramacyCompany.*;
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+import Patient.PharmacyRequest;
 import User.UserAccount;
+import Pharmacy.Store;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,12 +24,31 @@ public class PharStoreViewPatients extends javax.swing.JPanel {
      */
     
     ApplicationSystem applicationSystem;
-    UserAccount userAccount;
-    
+    Store store;
+    DefaultTableModel requestTableModel;
     public PharStoreViewPatients(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
         this.applicationSystem = applicationSystem;
-        this.userAccount = userAccount;
+        this.store = (Store)userAccount;
+        this.requestTableModel = (DefaultTableModel) jTable1.getModel();
+        populateTable();
+    }
+    
+    public void populateTable(){
+        requestTableModel.setRowCount(0);
+        
+        for(PharmacyRequest pr : store.getPharmacyrequestDirectory().getPharmacylist()){
+            Object rows[] = new Object[5];
+            rows[0] = pr.getMedicine().getNumber();
+            rows[1] = pr.getMedicine().getName();
+            rows[2] = pr.getQuantity();
+            rows[3] = pr.getPatient().getUsername();
+            rows[4] = pr.getDoctor().getUsername();
+            
+            
+            
+            requestTableModel.addRow(rows);
+        }
     }
 
     /**
@@ -39,6 +62,9 @@ public class PharStoreViewPatients extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -66,24 +92,100 @@ public class PharStoreViewPatients extends javax.swing.JPanel {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name", "Quantity", "Patient ", "Doctor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jButton1.setText("Dispense");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(317, 317, 317)
+                        .addComponent(jButton1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        int row = jTable1.getSelectedRow();
+        
+        
+        if(row == -1)
+        {
+            JOptionPane.showMessageDialog(null,"Please select a row", "Select Warning", 2);
+            return;
+        }
+        
+        PharmacyRequest pr =  store.getPharmacyrequestDirectory().getPharmacylist().get(row);
+        
+        if(pr.getQuantity() > pr.getMedicine().getQuantity())
+        {
+            JOptionPane.showMessageDialog(null,"Requested Medicine Quantity is unavilable", "Select Warning", 2);
+            return;
+        }
+        
+        
+        int updatedQuantity = pr.getMedicine().getQuantity() -  pr.getQuantity();
+        
+        pr.getMedicine().setQuantity(updatedQuantity);
+        store.getPharmacyrequestDirectory().getPharmacylist().remove(row);
+        
+        JOptionPane.showMessageDialog(null, "Succesfully Prescribed");
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

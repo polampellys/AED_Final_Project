@@ -6,7 +6,12 @@ package UI.DiagnosticsDiagnostician;
 
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+import Diagnostic.AssignedMachine;
+import Diagnostic.Diagnosticians;
+import Patient.DiagnosticRequest;
 import User.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,12 +24,42 @@ public class DiaAssignPatients extends javax.swing.JPanel {
      */
     
     ApplicationSystem applicationSystem;
-    UserAccount userAccount;
+    Diagnosticians diagnostician;
+    DefaultTableModel machineTableModel;
+    DefaultTableModel RequestTableModel;
     
     public DiaAssignPatients(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
         this.applicationSystem = applicationSystem;
-        this.userAccount = userAccount;
+         this.diagnostician = (Diagnosticians) userAccount;
+        this.machineTableModel = (DefaultTableModel) jTable1.getModel();
+        this.RequestTableModel = (DefaultTableModel) jTable2.getModel();
+        populateMachine();
+        populateRequests();
+    }
+    
+    
+    public void populateMachine(){
+        machineTableModel.setRowCount(0);
+        
+        for(AssignedMachine am : diagnostician.getAssignedMachineDirectory().getAssignedMachine()){
+            Object rows[] = new Object[1];
+            rows[0] = am.getMachine().getName();
+            
+            machineTableModel.addRow(rows);
+        }
+    }
+    
+    public void populateRequests(){
+        RequestTableModel.setRowCount(0);
+        for(DiagnosticRequest dr: diagnostician.getDiagRequestDirectory().getDiagnosticrequestlist()){
+            Object rows[] = new Object[2];
+            rows[0] = dr.getPatient().getUsername();
+            rows[1] = dr.getTestName();
+            
+            RequestTableModel.addRow(rows);
+        }
+        
     }
 
     /**
@@ -38,6 +73,13 @@ public class DiaAssignPatients extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -65,24 +107,140 @@ public class DiaAssignPatients extends javax.swing.JPanel {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Machine"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patient", "Test"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        jTextField1.setText("jTextField1");
+
+        jLabel1.setText("Test Result");
+
+        jButton1.setText("Send Report");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel1)
+                        .addGap(40, 40, 40)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(325, 325, 325)
+                        .addComponent(jButton1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int row = jTable1.getSelectedRow();
+        int patientrow = jTable2.getSelectedRow();
+        
+        
+        if(row == -1)
+        {
+            JOptionPane.showMessageDialog(null,"Please select a Machine", "Select Warning", 2);
+            return;
+        }
+        
+        if(patientrow == -1)
+        {
+            JOptionPane.showMessageDialog(null,"Please select a Patient", "Select Warning", 2);
+            return;
+            
+        }
+        
+        DiagnosticRequest dr = diagnostician.getDiagRequestDirectory().getDiagnosticrequestlist().get(patientrow);
+        AssignedMachine am = diagnostician.getAssignedMachineDirectory().getAssignedMachine().get(row);
+        
+        dr.setResult(jTextField1.getText());
+        am.getMachine().setAvailable(true);
+        am.getMachine().setDiagnostician(null);
+        diagnostician.getAssignedMachineDirectory().getAssignedMachine().remove(am);
+        diagnostician.getDiagRequestDirectory().getDiagnosticrequestlist().remove(dr);
+        
+        dr.getDiag().increasetests();
+        
+        
+        JOptionPane.showMessageDialog(null, "Succefully Published Results");
+        populateMachine();
+           
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
