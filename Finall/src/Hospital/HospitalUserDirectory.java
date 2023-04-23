@@ -15,9 +15,16 @@ import java.util.ArrayList;
  */
 public class HospitalUserDirectory {
     private ArrayList<UserAccount> hospitaluseraccountlist;
+    private DoctorUserDirectory doctorUserDirectory;
+    private NurseDirectory nurseDirectory;
+    private ReceptionistDirectory receptionistDirectory;
 
     public HospitalUserDirectory() {
         this.hospitaluseraccountlist = new ArrayList<UserAccount>(); 
+        
+        this.doctorUserDirectory = new DoctorUserDirectory();
+        this.nurseDirectory = new NurseDirectory();
+        this.receptionistDirectory = new ReceptionistDirectory(); 
         this.createUserAccount("admin","admin", new HospitalSystemAdminRole());
     }
 
@@ -28,6 +35,32 @@ public class HospitalUserDirectory {
     public void setHospitaluseraccountlist(ArrayList<UserAccount> hospitaluseraccountlist) {
         this.hospitaluseraccountlist = hospitaluseraccountlist;
     }
+
+    public DoctorUserDirectory getDoctorUserDirectory() {
+        return doctorUserDirectory;
+    }
+
+    public void setDoctorUserDirectory(DoctorUserDirectory doctorUserDirectory) {
+        this.doctorUserDirectory = doctorUserDirectory;
+    }
+
+    public NurseDirectory getNurseDirectory() {
+        return nurseDirectory;
+    }
+
+    public void setNurseDirectory(NurseDirectory nurseDirectory) {
+        this.nurseDirectory = nurseDirectory;
+    }
+
+    public ReceptionistDirectory getReceptionistDirectory() {
+        return receptionistDirectory;
+    }
+
+    public void setReceptionistDirectory(ReceptionistDirectory receptionistDirectory) {
+        this.receptionistDirectory = receptionistDirectory;
+    }
+    
+    
     
     public UserAccount createUserAccount(String name, String password, Role role) {
         UserAccount user = new UserAccount(name, password, role);

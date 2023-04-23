@@ -23,6 +23,8 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
     public HospitalSystemAdmin(ApplicationSystem applicationSystem, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
+        this.applicationSystem = applicationSystem;
+        this.userAccount = useraccount;
     }
 
     /**
@@ -151,7 +153,7 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-//        DiagnosticsLoginJFrame dj = new DiagnosticsLoginJFrame(this.applicationSystem, this.userAccount);
+        HospitalLoginJFrame hj = new HospitalLoginJFrame(this.applicationSystem, this.userAccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     /**

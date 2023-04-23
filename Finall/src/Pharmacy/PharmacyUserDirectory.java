@@ -14,9 +14,13 @@ import java.util.ArrayList;
  */
 public class PharmacyUserDirectory {
     private ArrayList<UserAccount> pharmacyuseraccountlist;
+    private CompaniesDirectory companiesDirectory;
+    private StoreDirectrory storeDirectory;
     
     public PharmacyUserDirectory(){
         this.pharmacyuseraccountlist = new ArrayList<UserAccount>();
+        this.companiesDirectory = new CompaniesDirectory();
+        this.storeDirectory = new StoreDirectrory();
     }
 
     public ArrayList<UserAccount> getPharmacyuseraccountlist() {
@@ -25,6 +29,22 @@ public class PharmacyUserDirectory {
 
     public void setPharmacyuseraccountlist(ArrayList<UserAccount> pharmacyuseraccountlist) {
         this.pharmacyuseraccountlist = pharmacyuseraccountlist;
+    }
+
+    public CompaniesDirectory getCompaniesDirectory() {
+        return companiesDirectory;
+    }
+
+    public void setCompaniesDirectory(CompaniesDirectory companiesDirectory) {
+        this.companiesDirectory = companiesDirectory;
+    }
+
+    public StoreDirectrory getStoreDirectory() {
+        return storeDirectory;
+    }
+
+    public void setStoreDirectory(StoreDirectrory storeDirectory) {
+        this.storeDirectory = storeDirectory;
     }
     
     public UserAccount createUserAccount(String name, String password, Role role) {

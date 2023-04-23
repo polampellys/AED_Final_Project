@@ -19,12 +19,16 @@ public class AmbulanceUserDirectory {
     private ArrayList<UserAccount> ambulanceuseraccountlist;
     private DriverUserDirectory driverUserDirectory;
     private POCUserDirectory pocUserDirectory;
+    private VehicleDirectory vehicleDirectory;
+    private AssignedVehiclesDirectory assignedVehiclesDirectory;
     
     public AmbulanceUserDirectory(){
         this.ambulanceuseraccountlist = new ArrayList<UserAccount>();
         
         this.driverUserDirectory = new DriverUserDirectory();
         this.pocUserDirectory = new POCUserDirectory();
+        this.vehicleDirectory = new VehicleDirectory();
+        this.assignedVehiclesDirectory = new AssignedVehiclesDirectory();
         
         this.driverUserDirectory.createUserAccount("driver", "driver", new AmbulanceDriverRole());
         this.pocUserDirectory.createUserAccount("Poc", "Poc", new AmbulancePOCRole());
@@ -54,6 +58,22 @@ public class AmbulanceUserDirectory {
         this.pocUserDirectory = pocUserDirectory;
     }
 
+    public VehicleDirectory getVehicleDirectory() {
+        return vehicleDirectory;
+    }
+
+    public void setVehicleDirectory(VehicleDirectory vehicleDirectory) {
+        this.vehicleDirectory = vehicleDirectory;
+    }
+
+    public AssignedVehiclesDirectory getAssignedVehiclesDirectory() {
+        return assignedVehiclesDirectory;
+    }
+
+    public void setAssignedVehiclesDirectory(AssignedVehiclesDirectory assignedVehiclesDirectory) {
+        this.assignedVehiclesDirectory = assignedVehiclesDirectory;
+    }
+
     
     
     
@@ -81,6 +101,16 @@ public class AmbulanceUserDirectory {
             }
         }
         return true;
+    }
+    
+    public Vehicle getAssignedAmbulance(Driver driver){
+        for(AssignedVehicles av: this.assignedVehiclesDirectory.assignedVehicles){
+            if(av.getDriver().getUsername().equals(driver.getUsername())){
+                return av.getVehicle();
+            }
+        }
+        return null;
+    
     }
     
 }

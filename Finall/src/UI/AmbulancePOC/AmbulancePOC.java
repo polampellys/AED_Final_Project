@@ -133,31 +133,31 @@ public class AmbulancePOC extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void assignDriversBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignDriversBtnActionPerformed
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
-                jSplitPane1.setRightComponent(new POCAssignDrivers(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_assignDriversBtnActionPerformed
-
-    private void createVehiclesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createVehiclesBtnActionPerformed
-        // TODO add your handling code here:
-                jSplitPane1.setRightComponent(new POCCreateVehicles(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_createVehiclesBtnActionPerformed
-
-    private void dashboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnActionPerformed
-        // TODO add your handling code here:
-                jSplitPane1.setRightComponent(new POCDashboard(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_dashboardBtnActionPerformed
+        this.setVisible(false);
+        AmbulanceLoginJFrame aj = new AmbulanceLoginJFrame(this.applicationSystem, this.userAccount);
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void deleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBtnActionPerformed
         // TODO add your handling code here:
         //        jSplitPane1.setRightComponent(new PharmaDelete(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_deleteUserBtnActionPerformed
 
-    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+    private void dashboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        AmbulanceLoginJFrame aj = new AmbulanceLoginJFrame(this.applicationSystem, this.userAccount);
-    }//GEN-LAST:event_logoutBtnActionPerformed
+        jSplitPane1.setRightComponent(new POCDashboard(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_dashboardBtnActionPerformed
+
+    private void createVehiclesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createVehiclesBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new POCCreateVehicles(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_createVehiclesBtnActionPerformed
+
+    private void assignDriversBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignDriversBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new POCAssignDrivers(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_assignDriversBtnActionPerformed
 
     /**
      * @param args the command line arguments

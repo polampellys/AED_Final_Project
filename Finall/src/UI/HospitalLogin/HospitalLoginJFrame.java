@@ -5,6 +5,9 @@
 package UI.HospitalLogin;
 
 import ApplicationSystem.ApplicationSystem;
+import Hospital.Doctor;
+import Hospital.Nurse;
+import Hospital.Receptionist;
 import UI.MainJFrame;
 import User.UserAccount;
 import static java.lang.System.console;
@@ -131,7 +134,7 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
 
         userComboBox.setBackground(new java.awt.Color(61, 118, 125));
         userComboBox.setForeground(new java.awt.Color(255, 255, 255));
-        userComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Driver", "Poc" }));
+        userComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Doctor", "Nurse", "Receptionist" }));
         jPanel3.add(userComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 351, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -173,13 +176,41 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Boolean foundUser = false;
-        String passText = new String(passwordField.getPassword());
-        if(this.applicationSystem.getHospitalUserAccountDirectory().authenticateUser(userNameField.getText(), passText) != null){
+        
+        String userType = (String) this.userComboBox.getSelectedItem();
+        
+        if("admin".equalsIgnoreCase(userType) && this.applicationSystem.getHospitalUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)
+        {
             UserAccount userAccount = this.applicationSystem.getHospitalUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
             foundUser = true;
             userAccount.getRole().createWorkArea(applicationSystem, userAccount);
             this.setVisible(false);   
         }
+        
+        if("Doctor".equalsIgnoreCase(userType) && (this.applicationSystem.getHospitalUserAccountDirectory().getDoctorUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+            
+            Doctor doctor = this.applicationSystem.getHospitalUserAccountDirectory().getDoctorUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            doctor.getRole().createWorkArea(applicationSystem, doctor);
+            this.setVisible(false); 
+        }
+        
+        if("Nurse".equalsIgnoreCase(userType) && (this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+            
+            Nurse nurse = this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            nurse.getRole().createWorkArea(applicationSystem, nurse);
+            this.setVisible(false); 
+        }
+        
+        if("Receptionist".equalsIgnoreCase(userType) && (this.applicationSystem.getHospitalUserAccountDirectory().getReceptionistDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+            
+            Receptionist rec = this.applicationSystem.getHospitalUserAccountDirectory().getReceptionistDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            rec.getRole().createWorkArea(applicationSystem, rec);
+            this.setVisible(false); 
+        }
+        
         
         if(!foundUser) {
             JOptionPane.showMessageDialog(null, "Invalid Credentials");

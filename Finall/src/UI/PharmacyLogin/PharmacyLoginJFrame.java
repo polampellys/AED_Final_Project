@@ -5,6 +5,8 @@
 package UI.PharmacyLogin;
 
 import ApplicationSystem.ApplicationSystem;
+import Pharmacy.Companies;
+import Pharmacy.Store;
 import UI.MainJFrame;
 import User.UserAccount;
 import javax.swing.JOptionPane;
@@ -59,6 +61,7 @@ public class PharmacyLoginJFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        userComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,7 +119,7 @@ public class PharmacyLoginJFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 100, 30));
 
         backBtn.setBackground(new java.awt.Color(61, 118, 125));
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +129,12 @@ public class PharmacyLoginJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 100, 30));
+        jPanel3.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, 100, 30));
+
+        userComboBox.setBackground(new java.awt.Color(61, 118, 125));
+        userComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        userComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Store", "Company" }));
+        jPanel3.add(userComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -168,12 +176,32 @@ public class PharmacyLoginJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         Boolean foundUser = false;
         
-        if(this.applicationSystem.getPharmacyUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null){
+        String userType = (String) this.userComboBox.getSelectedItem();
+        
+        if("admin".equalsIgnoreCase(userType) && this.applicationSystem.getPharmacyUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)
+        {
             UserAccount userAccount = this.applicationSystem.getPharmacyUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
             foundUser = true;
             userAccount.getRole().createWorkArea(applicationSystem, userAccount);
             this.setVisible(false);   
         }
+        
+        if("Store".equalsIgnoreCase(userType) && (this.applicationSystem.getPharmacyUserAccountDirectory().getStoreDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+            
+            Store store = this.applicationSystem.getPharmacyUserAccountDirectory().getStoreDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            store.getRole().createWorkArea(applicationSystem, store);
+            this.setVisible(false); 
+        }
+        
+        if("Company".equalsIgnoreCase(userType) && (this.applicationSystem.getPharmacyUserAccountDirectory().getCompaniesDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+            
+            Companies comp = this.applicationSystem.getPharmacyUserAccountDirectory().getCompaniesDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            comp.getRole().createWorkArea(applicationSystem, comp);
+            this.setVisible(false); 
+        }
+        
         
         if(!foundUser) {
             JOptionPane.showMessageDialog(null, "Invalid Credentials");
@@ -229,6 +257,7 @@ public class PharmacyLoginJFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JComboBox<String> userComboBox;
     private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
 }

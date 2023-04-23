@@ -22,6 +22,9 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
     public PharmacySystemAdmin(ApplicationSystem applicationSystem, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
+        
+        this.applicationSystem = applicationSystem;
+        this.userAccount = useraccount;
     }
 
     /**
@@ -65,7 +68,7 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
 
         viewUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         viewUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        viewUserBtn.setText("View Users");
+        viewUserBtn.setText("Create Company");
         viewUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewUserBtnActionPerformed(evt);
@@ -75,7 +78,7 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
 
         createUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         createUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        createUserBtn.setText("Create Users");
+        createUserBtn.setText("Create Store");
         createUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createUserBtnActionPerformed(evt);
