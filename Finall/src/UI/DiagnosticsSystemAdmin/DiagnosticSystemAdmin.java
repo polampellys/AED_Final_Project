@@ -23,6 +23,9 @@ public class DiagnosticSystemAdmin extends javax.swing.JFrame {
     public DiagnosticSystemAdmin(ApplicationSystem applicationSystem, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
+        
+        this.applicationSystem = applicationSystem;
+        this.userAccount = userAccount;
     }
 
     /**
@@ -66,7 +69,7 @@ public class DiagnosticSystemAdmin extends javax.swing.JFrame {
 
         viewUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         viewUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        viewUserBtn.setText("View Users");
+        viewUserBtn.setText("Create Vendor");
         viewUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewUserBtnActionPerformed(evt);
@@ -76,7 +79,7 @@ public class DiagnosticSystemAdmin extends javax.swing.JFrame {
 
         createUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         createUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        createUserBtn.setText("Create Users");
+        createUserBtn.setText("Create Diagnostician");
         createUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createUserBtnActionPerformed(evt);
@@ -130,7 +133,7 @@ public class DiagnosticSystemAdmin extends javax.swing.JFrame {
 
     private void viewUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUserBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new DiagView(this.applicationSystem, this.userAccount));
+        jSplitPane1.setRightComponent(new DiagCreateVendor(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_viewUserBtnActionPerformed
 
     private void createUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserBtnActionPerformed

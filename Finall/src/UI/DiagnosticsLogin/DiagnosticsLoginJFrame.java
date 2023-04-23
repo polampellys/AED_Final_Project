@@ -5,6 +5,8 @@
 package UI.DiagnosticsLogin;
 
 import ApplicationSystem.ApplicationSystem;
+import Diagnostic.Diagnosticians;
+import Diagnostic.Vendors;
 import UI.MainJFrame;
 import User.UserAccount;
 import javax.swing.JOptionPane;
@@ -51,7 +53,7 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        userNameField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -59,6 +61,7 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
+        userComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,11 +89,11 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
         jPanel3.setPreferredSize(new java.awt.Dimension(840, 540));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField2.setBackground(new java.awt.Color(61, 118, 125));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("Username");
-        jTextField2.setBorder(null);
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, 41));
+        userNameField.setBackground(new java.awt.Color(61, 118, 125));
+        userNameField.setForeground(new java.awt.Color(255, 255, 255));
+        userNameField.setText("Username");
+        userNameField.setBorder(null);
+        jPanel3.add(userNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, 41));
 
         passwordField.setBackground(new java.awt.Color(61, 118, 125));
         passwordField.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,7 +118,7 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 100, 30));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 100, 30));
 
         backBtn.setBackground(new java.awt.Color(61, 118, 125));
         backBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,7 +128,12 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel3.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 100, 30));
+        jPanel3.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 100, 30));
+
+        userComboBox.setBackground(new java.awt.Color(61, 118, 125));
+        userComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        userComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Vendor", "Diagnosticians" }));
+        jPanel3.add(userComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -167,12 +175,32 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         Boolean foundUser = false;
         
-        if(this.applicationSystem.getDiagnosticUserAccountDirectory().authenticateUser(jTextField2.getText(), passwordField.getText()) != null){
-            UserAccount userAccount = this.applicationSystem.getDiagnosticUserAccountDirectory().authenticateUser(jTextField2.getText(), passwordField.getText()); 
+        String userType = (String) this.userComboBox.getSelectedItem();
+        
+        if("admin".equalsIgnoreCase(userType) && this.applicationSystem.getDiagnosticUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)
+        {
+            UserAccount userAccount = this.applicationSystem.getDiagnosticUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
             foundUser = true;
             userAccount.getRole().createWorkArea(applicationSystem, userAccount);
             this.setVisible(false);   
         }
+        
+        if("Vendor".equalsIgnoreCase(userType) && (this.applicationSystem.getDiagnosticUserAccountDirectory().getVendorsUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+            
+            Vendors vendor = this.applicationSystem.getDiagnosticUserAccountDirectory().getVendorsUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            vendor.getRole().createWorkArea(applicationSystem, vendor);
+            this.setVisible(false); 
+        }
+        
+        if("Diagnosticians".equalsIgnoreCase(userType) && (this.applicationSystem.getDiagnosticUserAccountDirectory().getDiagnosticiansUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+            
+            Diagnosticians diag = this.applicationSystem.getDiagnosticUserAccountDirectory().getDiagnosticiansUserDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+            foundUser = true;
+            diag.getRole().createWorkArea(applicationSystem, diag);
+            this.setVisible(false); 
+        }
+        
         
         if(!foundUser) {
             JOptionPane.showMessageDialog(null, "Invalid Credentials");
@@ -227,7 +255,8 @@ public class DiagnosticsLoginJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JComboBox<String> userComboBox;
+    private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
 }

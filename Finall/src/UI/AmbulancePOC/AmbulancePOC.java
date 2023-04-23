@@ -39,13 +39,75 @@ public class AmbulancePOC extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        logoutBtn = new javax.swing.JButton();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        assignDriversBtn = new javax.swing.JButton();
+        createVehiclesBtn = new javax.swing.JButton();
+        dashboardBtn = new javax.swing.JButton();
+        deleteUserBtn = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("AmbulancePOC");
+        jSplitPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jSplitPane1.setPreferredSize(new java.awt.Dimension(1280, 640));
+
+        jPanel1.setBackground(new java.awt.Color(61, 118, 125));
+        jPanel1.setMinimumSize(new java.awt.Dimension(240, 640));
+        jPanel1.setPreferredSize(new java.awt.Dimension(240, 640));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Point Of Contact");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 120, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-user-24.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 24, -1, 40));
+
+        assignDriversBtn.setBackground(new java.awt.Color(61, 118, 125));
+        assignDriversBtn.setForeground(new java.awt.Color(255, 255, 255));
+        assignDriversBtn.setText("Assign Drivers");
+        assignDriversBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignDriversBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(assignDriversBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
+
+        createVehiclesBtn.setBackground(new java.awt.Color(61, 118, 125));
+        createVehiclesBtn.setForeground(new java.awt.Color(255, 255, 255));
+        createVehiclesBtn.setText("Create Vehicles");
+        createVehiclesBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createVehiclesBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(createVehiclesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
+
+        dashboardBtn.setBackground(new java.awt.Color(61, 118, 125));
+        dashboardBtn.setForeground(new java.awt.Color(255, 255, 255));
+        dashboardBtn.setText("Dashboard");
+        dashboardBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
+
+        deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
+        deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
+        deleteUserBtn.setText("Delete Users");
+        deleteUserBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteUserBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -56,37 +118,17 @@ public class AmbulancePOC extends javax.swing.JFrame {
                 logoutBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(logoutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, 70, 30));
 
-        jLabel2.setText("jLabel2");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-logout-25.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 29, 34));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel2)))
-                .addContainerGap(131, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel1)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-head-massage-area-80.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
+
+        jSplitPane1.setLeftComponent(jPanel1);
+
+        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -96,6 +138,26 @@ public class AmbulancePOC extends javax.swing.JFrame {
         this.setVisible(false);
         AmbulanceLoginJFrame aj = new AmbulanceLoginJFrame(this.applicationSystem, this.userAccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void deleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBtnActionPerformed
+        // TODO add your handling code here:
+        //        jSplitPane1.setRightComponent(new PharmaDelete(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_deleteUserBtnActionPerformed
+
+    private void dashboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new POCDashboard(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_dashboardBtnActionPerformed
+
+    private void createVehiclesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createVehiclesBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new POCCreateVehicles(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_createVehiclesBtnActionPerformed
+
+    private void assignDriversBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignDriversBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new POCAssignDrivers(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_assignDriversBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,8 +196,16 @@ public class AmbulancePOC extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton assignDriversBtn;
+    private javax.swing.JButton createVehiclesBtn;
+    private javax.swing.JButton dashboardBtn;
+    private javax.swing.JButton deleteUserBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutBtn;
     // End of variables declaration//GEN-END:variables
 }

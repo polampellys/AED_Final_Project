@@ -135,8 +135,10 @@ public class AmbulanceLoginJFrame extends javax.swing.JFrame {
         });
         jPanel3.add(backBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 100, 30));
 
+        userComboBox.setBackground(new java.awt.Color(61, 118, 125));
+        userComboBox.setForeground(new java.awt.Color(255, 255, 255));
         userComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Driver", "Poc" }));
-        jPanel3.add(userComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, -1));
+        jPanel3.add(userComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 351, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
