@@ -5,8 +5,8 @@
 package Roles;
 
 import ApplicationSystem.ApplicationSystem;
-import UI.AmbulanceDriver.AmbulanceDriver;
-
+import UI.HospitalDoctor.Doctor;
+import UI.PhramacyCompany.Pharmacy;
 import User.UserAccount;
 import javax.swing.JFrame;
 
@@ -14,11 +14,11 @@ import javax.swing.JFrame;
  *
  * @author saketh
  */
-public class AmbulanceDriverRole extends Role {
-    
+public class DoctorRole extends Role{
     @Override
     public JFrame createWorkArea(ApplicationSystem applicationSystem, UserAccount useraccount) {
         System.out.println(applicationSystem);
-        return new AmbulanceDriver(applicationSystem, useraccount);
+        return new Doctor(applicationSystem, useraccount);
     }
+    
 }
