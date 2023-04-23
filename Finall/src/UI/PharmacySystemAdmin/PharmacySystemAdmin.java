@@ -22,6 +22,9 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
     public PharmacySystemAdmin(ApplicationSystem applicationSystem, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
+        
+        this.applicationSystem = applicationSystem;
+        this.userAccount = useraccount;
     }
 
     /**
@@ -38,12 +41,13 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         viewUserBtn = new javax.swing.JButton();
-        createUserBtn = new javax.swing.JButton();
+        createStoreBtn = new javax.swing.JButton();
         updateUserBtn = new javax.swing.JButton();
         deleteUserBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        createCompanyBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,17 +75,17 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
                 viewUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(viewUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
+        jPanel1.add(viewUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
 
-        createUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        createUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        createUserBtn.setText("Create Users");
-        createUserBtn.addActionListener(new java.awt.event.ActionListener() {
+        createStoreBtn.setBackground(new java.awt.Color(61, 118, 125));
+        createStoreBtn.setForeground(new java.awt.Color(255, 255, 255));
+        createStoreBtn.setText("Create Stores");
+        createStoreBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createUserBtnActionPerformed(evt);
+                createStoreBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(createUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
+        jPanel1.add(createStoreBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
 
         updateUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         updateUserBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,7 +95,7 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
                 updateUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
+        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
 
         deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,7 +105,7 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
                 deleteUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
+        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,6 +124,16 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-system-administrator-male-96.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
+        createCompanyBtn.setBackground(new java.awt.Color(61, 118, 125));
+        createCompanyBtn.setForeground(new java.awt.Color(255, 255, 255));
+        createCompanyBtn.setText("Create Company");
+        createCompanyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createCompanyBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(createCompanyBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
+
         jSplitPane1.setLeftComponent(jPanel1);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -132,10 +146,10 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
         jSplitPane1.setRightComponent(new PharmaView(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_viewUserBtnActionPerformed
 
-    private void createUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserBtnActionPerformed
+    private void createStoreBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStoreBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new PharmaCreate(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_createUserBtnActionPerformed
+        jSplitPane1.setRightComponent(new PharmaCreateStore(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_createStoreBtnActionPerformed
 
     private void updateUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserBtnActionPerformed
         // TODO add your handling code here:
@@ -152,6 +166,12 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
         this.setVisible(false);
         PharmacyLoginJFrame pj = new PharmacyLoginJFrame(this.applicationSystem, this.userAccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void createCompanyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createCompanyBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new PharmaCreateCompany(this.applicationSystem, this.userAccount));
+ 
+    }//GEN-LAST:event_createCompanyBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,7 +209,8 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton createUserBtn;
+    private javax.swing.JButton createCompanyBtn;
+    private javax.swing.JButton createStoreBtn;
     private javax.swing.JButton deleteUserBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

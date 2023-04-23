@@ -46,9 +46,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="223" max="32767" attributes="0"/>
+                  <EmptySpace pref="269" max="32767" attributes="0"/>
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="420" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="400" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -74,7 +74,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="DELETE USERS"/>
+            <Property name="text" type="java.lang.String" value="DASHBOARD"/>
           </Properties>
         </Component>
       </SubComponents>

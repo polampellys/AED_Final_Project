@@ -2,13 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UI.SystemAdmin;
+package UI.HospitalSystemAdmin;
 
+import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
 import Roles.AmbulanceSystemAdminRole;
-import Roles.DiagnosticSystemAdminRole;
+import Roles.DoctorRole;
 import Roles.HospitalSystemAdminRole;
-import Roles.PharmacySystemAdminRole;
+import Roles.NurseRole;
+import Roles.ReceptionistRole;
 import Roles.Role;
 import User.UserAccount;
 import javax.swing.JOptionPane;
@@ -17,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author suhasinipolampelly
  */
-public class CreateJPanel extends javax.swing.JPanel {
+public class HosCreate extends javax.swing.JPanel {
 
     /**
      * Creates new form CreateJPanel
@@ -27,21 +29,15 @@ public class CreateJPanel extends javax.swing.JPanel {
     UserAccount userAccount;
     
     
-    public CreateJPanel(ApplicationSystem applicationSystem, UserAccount userAccount) {
+    public HosCreate(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
         
         this.applicationSystem = applicationSystem;
         this.userAccount = userAccount;
         
-        populateDropdown();
+        
     }
     
-    public void populateDropdown() {
-        jComboBox1.removeAllItems();
-        for (String rolename : Role.getAllRoles()) {
-            jComboBox1.addItem(rolename);
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -99,6 +95,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-lock-30.png"))); // NOI18N
 
         jComboBox1.setForeground(new java.awt.Color(153, 204, 204));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Nurse", "Receptionist" }));
 
         createBtn.setBackground(new java.awt.Color(153, 204, 204));
         createBtn.setForeground(new java.awt.Color(54, 125, 118));
@@ -166,41 +163,32 @@ public class CreateJPanel extends javax.swing.JPanel {
         }
         else{
             String userName = userNameField.getText();
-            //creating hospitalsystemadmin
-            if(jComboBox1.getSelectedItem().equals("hospital system admin")){
-                 if(this.applicationSystem.getHospitalUserAccountDirectory().checkUniqueUsername(userName)){
-                     this.applicationSystem.getHospitalUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new HospitalSystemAdminRole());
+            //creating doctor
+            if(jComboBox1.getSelectedItem().equals("Doctor")){
+                 if(this.applicationSystem.getHospitalUserAccountDirectory().getDoctorUserDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getHospitalUserAccountDirectory().getDoctorUserDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new DoctorRole());
                      //System.out.println("HI"+ this.applicationSystem.getHospitalUserAccountDirectory().getHospitaluseraccountlist().size());
-                     JOptionPane.showMessageDialog(null, "Created New Hospital Admin");
+                     JOptionPane.showMessageDialog(null, "Created New Doctor");
                  }else{
-                        JOptionPane.showMessageDialog(null, "Hospital Admin with same credentials already exists");
+                        JOptionPane.showMessageDialog(null, "Doctor with same credentials already exists");
                  }
              }
-            //creating ambulancesystemadmin
-            if(jComboBox1.getSelectedItem().equals("ambulance system admin")){
-                 if(this.applicationSystem.getAmbulanceUserAccountDirectory().checkUniqueUsername(userName)){
-                     this.applicationSystem.getAmbulanceUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new AmbulanceSystemAdminRole());
-                     JOptionPane.showMessageDialog(null, "Created New Ambulance Admin");
+            //creating nurse
+            if(jComboBox1.getSelectedItem().equals("Nurse")){
+                 if(this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new NurseRole());
+                     JOptionPane.showMessageDialog(null, "Created New Nurse");
                  }else{
-                        JOptionPane.showMessageDialog(null, "Ambulance Admin with same credentials already exists");
+                        JOptionPane.showMessageDialog(null, "Nurse with same credentials already exists");
                  }
              }
-            //creating pharmacysystemadmin
-            if(jComboBox1.getSelectedItem().equals("pharmacy system admin")){
-                 if(this.applicationSystem.getPharmacyUserAccountDirectory().checkUniqueUsername(userName)){
-                     this.applicationSystem.getPharmacyUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new PharmacySystemAdminRole());
-                     JOptionPane.showMessageDialog(null, "Created New Pharmacy Admin");
+            //creating Receptionist
+            if(jComboBox1.getSelectedItem().equals("Receptionist")){
+                 if(this.applicationSystem.getHospitalUserAccountDirectory().getReceptionistDirectory().checkUniqueUsername(userName)){
+                     this.applicationSystem.getHospitalUserAccountDirectory().getReceptionistDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new ReceptionistRole());
+                     JOptionPane.showMessageDialog(null, "Created New Recptionist");
                  }else{
-                        JOptionPane.showMessageDialog(null, "Pharmacy Admin with same credentials already exists");
-                 }
-             }
-            //creating diagnosticsystemadmin
-            if(jComboBox1.getSelectedItem().equals("diagnostic system admin")){
-                 if(this.applicationSystem.getDiagnosticUserAccountDirectory().checkUniqueUsername(userName)){
-                     this.applicationSystem.getDiagnosticUserAccountDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new DiagnosticSystemAdminRole());
-                     JOptionPane.showMessageDialog(null, "Created New Diagnostic Admin");
-                 }else{
-                        JOptionPane.showMessageDialog(null, "Diagnostic Admin with same credentials already exists");
+                        JOptionPane.showMessageDialog(null, "Recptionist with same credentials already exists");
                  }
              }
         }

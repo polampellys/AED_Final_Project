@@ -2,23 +2,51 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UI.PharmacySystemAdmin;
+package UI.PharmacyStore;
 
+import Pharmacy.Store;
+import UI.PhramacyCompany.*;
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+import Pharmacy.Medicine;
 import User.UserAccount;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author suhasinipolampelly
  */
-public class PharmaDelete extends javax.swing.JPanel {
+public class PharStoreDashboard extends javax.swing.JPanel {
 
     /**
-     * Creates new form UpdateJPanel
+     * Creates new form DeleteJPanel
      */
-    public PharmaDelete(ApplicationSystem applicationSystem, UserAccount userAccount) {
+    
+    ApplicationSystem applicationSystem;
+    Store store;
+    DefaultTableModel MedicineTableModel;
+    
+    public PharStoreDashboard(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
+        this.applicationSystem = applicationSystem;
+        this.store = (Store) userAccount;
+        this.MedicineTableModel = (DefaultTableModel) jTable1.getModel();
+        
+        populateTable();
+    }
+    
+    
+    
+    public void populateTable(){
+        MedicineTableModel.setRowCount(0);
+        for(Medicine medicine : store.getMedicineDirectory().getMedicinelist()){
+            Object rows[] = new Object[3];
+            rows[0] = medicine.getNumber();
+            rows[1] = medicine.getName();
+            rows[2] = medicine.getQuantity();
+            
+            MedicineTableModel.addRow(rows);
+        }
     }
 
     /**
@@ -32,6 +60,8 @@ public class PharmaDelete extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -40,16 +70,16 @@ public class PharmaDelete extends javax.swing.JPanel {
         jLabel14.setBackground(new java.awt.Color(54, 125, 118));
         jLabel14.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("DELETE USERS");
+        jLabel14.setText("DASHBOARD");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(223, Short.MAX_VALUE)
+                .addContainerGap(269, Short.MAX_VALUE)
                 .addComponent(jLabel14)
-                .addGap(420, 420, 420))
+                .addGap(400, 400, 400))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -59,24 +89,51 @@ public class PharmaDelete extends javax.swing.JPanel {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name", "Quantity"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(223, 223, 223)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

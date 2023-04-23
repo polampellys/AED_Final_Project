@@ -2,29 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package UI.HospitalSystemAdmin;
+package UI.PharmacyStore;
 
 import ApplicationSystem.ApplicationSystem;
-import UI.AmbulanceLogin.AmbulanceLoginJFrame;
-import UI.HospitalLogin.HospitalLoginJFrame;
+import UI.PharmacyLogin.PharmacyLoginJFrame;
 import User.UserAccount;
 
 /**
  *
- * @author suhasinipolampelly
+ * @author saketh
  */
-public class HospitalSystemAdmin extends javax.swing.JFrame {
+public class Store extends javax.swing.JFrame {
 
     /**
-     * Creates new form HospitalSystemAdmin
+     * Creates new form Store
      */
     ApplicationSystem applicationSystem;
     UserAccount userAccount;
-    public HospitalSystemAdmin(ApplicationSystem applicationSystem, UserAccount useraccount) {
+    public Store(ApplicationSystem applicationSystem, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
+        
         this.applicationSystem = applicationSystem;
         this.userAccount = useraccount;
+        
+        this.jLabel2.setText(userAccount.getUsername());
     }
 
     /**
@@ -40,10 +42,10 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        viewUserBtn = new javax.swing.JButton();
-        createUserBtn = new javax.swing.JButton();
-        updateUserBtn = new javax.swing.JButton();
-        deleteUserBtn = new javax.swing.JButton();
+        requestMedicineBtn = new javax.swing.JButton();
+        viewPatientsBtn = new javax.swing.JButton();
+        generateReportBtn = new javax.swing.JButton();
+        dashboardBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -60,51 +62,51 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Hospital System Admin");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 170, 40));
+        jLabel2.setText("Store");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 130, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-user-24.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 24, -1, 40));
 
-        viewUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        viewUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        viewUserBtn.setText("View Users");
-        viewUserBtn.addActionListener(new java.awt.event.ActionListener() {
+        requestMedicineBtn.setBackground(new java.awt.Color(61, 118, 125));
+        requestMedicineBtn.setForeground(new java.awt.Color(255, 255, 255));
+        requestMedicineBtn.setText("Request Medicines");
+        requestMedicineBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewUserBtnActionPerformed(evt);
+                requestMedicineBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(viewUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
+        jPanel1.add(requestMedicineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
 
-        createUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        createUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        createUserBtn.setText("Create Users");
-        createUserBtn.addActionListener(new java.awt.event.ActionListener() {
+        viewPatientsBtn.setBackground(new java.awt.Color(61, 118, 125));
+        viewPatientsBtn.setForeground(new java.awt.Color(255, 255, 255));
+        viewPatientsBtn.setText("View Patients");
+        viewPatientsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createUserBtnActionPerformed(evt);
+                viewPatientsBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(createUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
+        jPanel1.add(viewPatientsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
 
-        updateUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        updateUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        updateUserBtn.setText("Update Users");
-        updateUserBtn.addActionListener(new java.awt.event.ActionListener() {
+        generateReportBtn.setBackground(new java.awt.Color(61, 118, 125));
+        generateReportBtn.setForeground(new java.awt.Color(255, 255, 255));
+        generateReportBtn.setText("Generate Reports");
+        generateReportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateUserBtnActionPerformed(evt);
+                generateReportBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
+        jPanel1.add(generateReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
 
-        deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        deleteUserBtn.setText("Delete Users");
-        deleteUserBtn.addActionListener(new java.awt.event.ActionListener() {
+        dashboardBtn.setBackground(new java.awt.Color(61, 118, 125));
+        dashboardBtn.setForeground(new java.awt.Color(255, 255, 255));
+        dashboardBtn.setText("Dashboard");
+        dashboardBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteUserBtnActionPerformed(evt);
+                dashboardBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
+        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,8 +122,8 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-logout-25.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 29, 34));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-system-administrator-male-96.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-new-store-80.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
@@ -130,31 +132,31 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUserBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new HosView(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_viewUserBtnActionPerformed
-
-    private void createUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new HosCreate(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_createUserBtnActionPerformed
-
-    private void updateUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new HosUpdate(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_updateUserBtnActionPerformed
-
-    private void deleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new HosDelete(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_deleteUserBtnActionPerformed
-
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        HospitalLoginJFrame hj = new HospitalLoginJFrame(this.applicationSystem, this.userAccount);
+        PharmacyLoginJFrame plj = new PharmacyLoginJFrame(this.applicationSystem, this.userAccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
+
+    private void dashboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new PharStoreDashboard(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_dashboardBtnActionPerformed
+
+    private void generateReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateReportBtnActionPerformed
+        // TODO add your handling code here:
+        //        jSplitPane1.setRightComponent(new DiaReports(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_generateReportBtnActionPerformed
+
+    private void viewPatientsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPatientsBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new PharStoreViewPatients(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_viewPatientsBtnActionPerformed
+
+    private void requestMedicineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestMedicineBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new PharStoreRequestMedicines(this.applicationSystem, this.userAccount));
+    }//GEN-LAST:event_requestMedicineBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,27 +175,27 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HospitalSystemAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Store.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HospitalSystemAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Store.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HospitalSystemAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Store.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HospitalSystemAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Store.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new HospitalSystemAdmin(applicationSystem, useraccount).setVisible(true);
+                //new Store(applicationSystem, useraccount).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton createUserBtn;
-    private javax.swing.JButton deleteUserBtn;
+    private javax.swing.JButton dashboardBtn;
+    private javax.swing.JButton generateReportBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -201,7 +203,7 @@ public class HospitalSystemAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutBtn;
-    private javax.swing.JButton updateUserBtn;
-    private javax.swing.JButton viewUserBtn;
+    private javax.swing.JButton requestMedicineBtn;
+    private javax.swing.JButton viewPatientsBtn;
     // End of variables declaration//GEN-END:variables
 }
