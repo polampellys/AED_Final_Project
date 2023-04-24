@@ -47,7 +47,6 @@ public class AmbulanceDriver extends javax.swing.JFrame {
         profileBtn = new javax.swing.JButton();
         vehiclesRequestBtn = new javax.swing.JButton();
         dashboardBtn = new javax.swing.JButton();
-        deleteUserBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -100,16 +99,6 @@ public class AmbulanceDriver extends javax.swing.JFrame {
         });
         jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
 
-        deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        deleteUserBtn.setText("Delete Users");
-        deleteUserBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteUserBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
-
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBtn.setText("LOGOUT");
@@ -148,11 +137,6 @@ public class AmbulanceDriver extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new DriverDashboard(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_dashboardBtnActionPerformed
-
-    private void deleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBtnActionPerformed
-        // TODO add your handling code here:
-//        jSplitPane1.setRightComponent(new PharmaDelete(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_deleteUserBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
@@ -198,7 +182,6 @@ public class AmbulanceDriver extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton dashboardBtn;
-    private javax.swing.JButton deleteUserBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

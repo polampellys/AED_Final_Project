@@ -10,7 +10,12 @@ import ApplicationSystem.ApplicationSystem;
 import Patient.PharmacyRequest;
 import User.UserAccount;
 import Pharmacy.Store;
+import UI.AmbulanceDriver.DriverVehicleRequest;
+import java.awt.Color;
+import java.awt.Component;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -32,6 +37,19 @@ public class PharStoreViewPatients extends javax.swing.JPanel {
         this.store = (Store)userAccount;
         this.requestTableModel = (DefaultTableModel) jTable1.getModel();
         populateTable();
+        jTable1.setDefaultRenderer(Object.class, new MyCellRenderer());
+    }
+    
+    private class MyCellRenderer extends DefaultTableCellRenderer {
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            if (row % 2 == 0) {
+                c.setBackground(new Color(0x99, 0xcc, 0xcc));
+            } else {
+                c.setBackground(new Color(0x3D, 0x76, 0x7D));
+            }
+            return c;
+        }
     }
     
     public void populateTable(){
@@ -80,7 +98,7 @@ public class PharStoreViewPatients extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(230, Short.MAX_VALUE)
+                .addContainerGap(184, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addGap(400, 400, 400))
         );
@@ -110,7 +128,10 @@ public class PharStoreViewPatients extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setBackground(new java.awt.Color(153, 204, 204));
+        jButton1.setForeground(new java.awt.Color(61, 118, 125));
         jButton1.setText("Dispense");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -122,26 +143,26 @@ public class PharStoreViewPatients extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(317, 317, 317)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(195, 195, 195)))
+                .addGap(250, 250, 250))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -168,10 +189,12 @@ public class PharStoreViewPatients extends javax.swing.JPanel {
         
         
         int updatedQuantity = pr.getMedicine().getQuantity() -  pr.getQuantity();
-        
         pr.getMedicine().setQuantity(updatedQuantity);
-        store.getPharmacyrequestDirectory().getPharmacylist().remove(row);
         
+        int newRevenue = store.getRevenue() + pr.getQuantity() *2;
+        store.setRevenue(newRevenue);
+  
+        store.getPharmacyrequestDirectory().getPharmacylist().remove(row);      
         JOptionPane.showMessageDialog(null, "Succesfully Prescribed");
         
         

@@ -6,6 +6,7 @@ package UI.DiagnosticsDiagnostician;
 
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+import Diagnostic.Diagnosticians;
 import User.UserAccount;
 
 /**
@@ -19,12 +20,22 @@ public class DiaDashboard extends javax.swing.JPanel {
      */
     
     ApplicationSystem applicationSystem;
-    UserAccount userAccount;
+    Diagnosticians diagnostician;
     
     public DiaDashboard(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
         this.applicationSystem = applicationSystem;
-        this.userAccount = userAccount;
+        this.diagnostician = (Diagnosticians) userAccount;
+        
+        
+        populateRevenue();
+    }
+    
+    public void populateRevenue()
+    {
+        
+        
+         jLabel6.setText(String.valueOf(diagnostician.getTests() * 20));
     }
 
     /**
@@ -38,6 +49,9 @@ public class DiaDashboard extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -65,24 +79,51 @@ public class DiaDashboard extends javax.swing.JPanel {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-tips-30.png"))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 204, 204));
+        jLabel1.setText("Revenue");
+
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(61, 118, 125));
+        jLabel6.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(400, 400, 400)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(67, 67, 67)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

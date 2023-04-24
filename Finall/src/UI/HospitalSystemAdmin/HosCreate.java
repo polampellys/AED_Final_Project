@@ -95,7 +95,7 @@ public class HosCreate extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-lock-30.png"))); // NOI18N
 
         jComboBox1.setForeground(new java.awt.Color(153, 204, 204));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", " ", "Receptionist" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Receptionist" }));
 
         createBtn.setBackground(new java.awt.Color(153, 204, 204));
         createBtn.setForeground(new java.awt.Color(54, 125, 118));

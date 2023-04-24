@@ -99,7 +99,7 @@ public class DiagnosticSystemAdmin extends javax.swing.JFrame {
 
         deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        deleteUserBtn.setText("Delete Users");
+        deleteUserBtn.setText("Dashboard");
         deleteUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteUserBtnActionPerformed(evt);

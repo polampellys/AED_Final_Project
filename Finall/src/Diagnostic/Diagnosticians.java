@@ -66,6 +66,14 @@ public class Diagnosticians extends UserAccount {
     {
         tests++;
     }
+
+    public int getTests() {
+        return tests;
+    }
+
+    public void setTests(int tests) {
+        this.tests = tests;
+    }
     
     
 }

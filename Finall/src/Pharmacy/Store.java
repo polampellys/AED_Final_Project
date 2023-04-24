@@ -22,6 +22,8 @@ public class Store extends UserAccount {
     private MedicineDirectory medicineDirectory;
     private PharmacyRequestDirectory pharmacyrequestDirectory;
     
+    private int revenue = 0;
+    
     public Store(String username, String password, Role role) {
         super(username, password, role);
         this.medicineRequestDirectory = new MedicineRequestDirectory();
@@ -88,5 +90,15 @@ public class Store extends UserAccount {
         int number = medicineDirectory.getMedicinelist().size() + 1;
         medicineDirectory.createMedicine(number, medicineName, quantity);
     }
+
+    public int getRevenue() {
+        return revenue;
+    }
+
+    public void setRevenue(int sales) {
+        this.revenue = sales;
+    }
+    
+    
     
 }

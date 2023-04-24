@@ -79,7 +79,7 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
                 createDriverBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(createDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 200, 43));
+        jPanel1.add(createDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
 
         createPOCBtn.setBackground(new java.awt.Color(61, 118, 125));
         createPOCBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,7 +99,7 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
                 updateUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 200, 43));
+        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
 
         deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,7 +109,7 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
                 deleteUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 200, 43));
+        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,7 +136,7 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
                 viewUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(viewUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 200, 43));
+        jPanel1.add(viewUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
 
         jSplitPane1.setLeftComponent(jPanel1);
 

@@ -11,9 +11,14 @@ import UI.DiagnosticsSystemAdmin.*;
 import UI.AmbulanceSystemAdmin.*;
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+import UI.AmbulanceDriver.DriverVehicleRequest;
 import User.UserAccount;
+import java.awt.Color;
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -41,6 +46,22 @@ public class POCAssignDrivers extends javax.swing.JPanel {
         this.ADTableModel = (DefaultTableModel) jTable3.getModel();
         populateTable();
         populateDrivers();
+        jTable1.setDefaultRenderer(Object.class, new MyCellRenderer());
+        jTable2.setDefaultRenderer(Object.class, new MyCellRenderer());
+        jTable3.setDefaultRenderer(Object.class, new MyCellRenderer());
+        
+    }
+    
+    private class MyCellRenderer extends DefaultTableCellRenderer {
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            if (row % 2 == 0) {
+                c.setBackground(new Color(0x99, 0xcc, 0xcc));
+            } else {
+                c.setBackground(new Color(0x3D, 0x76, 0x7D));
+            }
+            return c;
+        }
     }
     
     public void populateTable(){
@@ -108,7 +129,7 @@ public class POCAssignDrivers extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(431, Short.MAX_VALUE)
                 .addComponent(jLabel14)
                 .addGap(420, 420, 420))
         );
@@ -156,7 +177,10 @@ public class POCAssignDrivers extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTable2);
 
+        jButton1.setBackground(new java.awt.Color(153, 204, 204));
+        jButton1.setForeground(new java.awt.Color(61, 118, 125));
         jButton1.setText("Assign");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -189,30 +213,30 @@ public class POCAssignDrivers extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                        .addGap(100, 100, 100)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(242, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(438, 438, 438)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(31, 31, 31))
+                .addGap(34, 34, 34)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126))
         );
     }// </editor-fold>//GEN-END:initComponents
 
