@@ -19,11 +19,17 @@ public class Driver extends UserAccount{
     private static int counter = 0;
     private int trips = 0;
     private AmbulanceRequestDirectory ambulanceRequestDirectory;
+    double age;
+    String experience;
     
-    public Driver(String username, String password, Role role) {
+    
+    public Driver(String username, String password, Role role, double age, String experience) {
         super(username,password,role);
         this.accountId = "user" + this.counter++;
         this.ambulanceRequestDirectory = new AmbulanceRequestDirectory();
+        this.age = age;
+        this.experience = experience;
+        
         
     }
 
@@ -58,8 +64,22 @@ public class Driver extends UserAccount{
     public void setTrips(int trips) {
         this.trips = trips;
     }
-    
-    
+
+    public double getAge() {
+        return age;
+    }
+
+    public void setAge(double age) {
+        this.age = age;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
     
     public void increaseTrip()
     {

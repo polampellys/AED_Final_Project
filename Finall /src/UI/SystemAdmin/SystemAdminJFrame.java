@@ -39,7 +39,6 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        viewUserBtn = new javax.swing.JButton();
         createUserBtn = new javax.swing.JButton();
         updateUserBtn = new javax.swing.JButton();
         deleteUserBtn = new javax.swing.JButton();
@@ -65,16 +64,6 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-user-24.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 24, -1, 40));
 
-        viewUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        viewUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        viewUserBtn.setText("View Users");
-        viewUserBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewUserBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(viewUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
-
         createUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         createUserBtn.setForeground(new java.awt.Color(255, 255, 255));
         createUserBtn.setText("Create Users");
@@ -93,7 +82,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
                 updateUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
+        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
 
         deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,7 +92,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
                 deleteUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
+        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,11 +133,6 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new CreateJPanel(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_createUserBtnActionPerformed
-
-    private void viewUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUserBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new ViewJPanel(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_viewUserBtnActionPerformed
 
     private void updateUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserBtnActionPerformed
         // TODO add your handling code here:
@@ -202,6 +186,5 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JButton updateUserBtn;
-    private javax.swing.JButton viewUserBtn;
     // End of variables declaration//GEN-END:variables
 }

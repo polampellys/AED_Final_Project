@@ -44,7 +44,6 @@ public class Store extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         requestMedicineBtn = new javax.swing.JButton();
         viewPatientsBtn = new javax.swing.JButton();
-        generateReportBtn = new javax.swing.JButton();
         dashboardBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -87,16 +86,6 @@ public class Store extends javax.swing.JFrame {
             }
         });
         jPanel1.add(viewPatientsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
-
-        generateReportBtn.setBackground(new java.awt.Color(61, 118, 125));
-        generateReportBtn.setForeground(new java.awt.Color(255, 255, 255));
-        generateReportBtn.setText("Generate Reports");
-        generateReportBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generateReportBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(generateReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
 
         dashboardBtn.setBackground(new java.awt.Color(61, 118, 125));
         dashboardBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,11 +131,6 @@ public class Store extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new PharStoreDashboard(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_dashboardBtnActionPerformed
-
-    private void generateReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateReportBtnActionPerformed
-        // TODO add your handling code here:
-        //        jSplitPane1.setRightComponent(new DiaReports(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_generateReportBtnActionPerformed
 
     private void viewPatientsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPatientsBtnActionPerformed
         // TODO add your handling code here:
@@ -195,7 +179,6 @@ public class Store extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton dashboardBtn;
-    private javax.swing.JButton generateReportBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

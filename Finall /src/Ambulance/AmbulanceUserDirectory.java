@@ -30,8 +30,7 @@ public class AmbulanceUserDirectory {
         this.vehicleDirectory = new VehicleDirectory();
         this.assignedVehiclesDirectory = new AssignedVehiclesDirectory();
         
-        this.driverUserDirectory.createUserAccount("driver", "driver", new AmbulanceDriverRole());
-        this.pocUserDirectory.createUserAccount("Poc", "Poc", new AmbulancePOCRole());
+        
     }
 
     public ArrayList<UserAccount> getAmbulanceuseraccountlist() {

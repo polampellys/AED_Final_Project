@@ -41,10 +41,7 @@ public class Vendor extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        approveRequestsBtn = new javax.swing.JButton();
         addMachinesBtn = new javax.swing.JButton();
-        dashboardBtn = new javax.swing.JButton();
-        dashboardBtnnn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -67,16 +64,6 @@ public class Vendor extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-user-24.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 24, -1, 40));
 
-        approveRequestsBtn.setBackground(new java.awt.Color(61, 118, 125));
-        approveRequestsBtn.setForeground(new java.awt.Color(255, 255, 255));
-        approveRequestsBtn.setText("Appprove Requests");
-        approveRequestsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                approveRequestsBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(approveRequestsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
-
         addMachinesBtn.setBackground(new java.awt.Color(61, 118, 125));
         addMachinesBtn.setForeground(new java.awt.Color(255, 255, 255));
         addMachinesBtn.setText("Add Machines");
@@ -86,26 +73,6 @@ public class Vendor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(addMachinesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
-
-        dashboardBtn.setBackground(new java.awt.Color(61, 118, 125));
-        dashboardBtn.setForeground(new java.awt.Color(255, 255, 255));
-        dashboardBtn.setText("Dashboard");
-        dashboardBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashboardBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
-
-        dashboardBtnnn.setBackground(new java.awt.Color(61, 118, 125));
-        dashboardBtnnn.setForeground(new java.awt.Color(255, 255, 255));
-        dashboardBtnnn.setText("later");
-        dashboardBtnnn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashboardBtnnnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(dashboardBtnnn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,25 +98,10 @@ public class Vendor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void approveRequestsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveRequestsBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new DiaApproveRequests(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_approveRequestsBtnActionPerformed
-
     private void addMachinesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMachinesBtnActionPerformed
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new DiaAddMachines(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_addMachinesBtnActionPerformed
-
-    private void dashboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new DiaVendorDashboard(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_dashboardBtnActionPerformed
-
-    private void dashboardBtnnnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnnnActionPerformed
-        // TODO add your handling code here:
-//        jSplitPane1.setRightComponent(new DiaDashboard(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_dashboardBtnnnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
@@ -195,9 +147,6 @@ public class Vendor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addMachinesBtn;
-    private javax.swing.JButton approveRequestsBtn;
-    private javax.swing.JButton dashboardBtn;
-    private javax.swing.JButton dashboardBtnnn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -47,7 +47,6 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
         createDriverBtn = new javax.swing.JButton();
         createPOCBtn = new javax.swing.JButton();
         updateUserBtn = new javax.swing.JButton();
-        deleteUserBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -79,7 +78,7 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
                 createDriverBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(createDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 200, 43));
+        jPanel1.add(createDriverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
 
         createPOCBtn.setBackground(new java.awt.Color(61, 118, 125));
         createPOCBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,17 +98,7 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
                 updateUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 200, 43));
-
-        deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        deleteUserBtn.setText("Delete Users");
-        deleteUserBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteUserBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 200, 43));
+        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,13 +119,13 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
 
         viewUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         viewUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        viewUserBtn.setText("View Users");
+        viewUserBtn.setText("Dashboard");
         viewUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewUserBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(viewUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 200, 43));
+        jPanel1.add(viewUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
@@ -159,11 +148,6 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new AmbUpdate(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_updateUserBtnActionPerformed
-
-    private void deleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new AmbDelete(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_deleteUserBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
@@ -214,7 +198,6 @@ public class AmbulanceSystemAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createDriverBtn;
     private javax.swing.JButton createPOCBtn;
-    private javax.swing.JButton deleteUserBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
