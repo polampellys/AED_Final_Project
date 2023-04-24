@@ -26,8 +26,8 @@ public class DriverUserDirectory {
         this.useraccountlist = useraccountlist;
     }
     
-    public Driver createUserAccount(String name, String password, Role role) {
-        Driver user = new Driver(name, password, role);
+    public Driver createUserAccount(String name, String password, Role role, double age, String experience) {
+        Driver user = new Driver(name, password, role, age, experience);
         this.useraccountlist.add(user);
         return user;
     }

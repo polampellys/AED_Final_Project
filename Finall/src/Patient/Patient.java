@@ -16,9 +16,14 @@ public class Patient extends UserAccount{
     
     private static int counter = 0;
     private String bp;
+    double age;
+    int weight;
+      
     
-    public Patient(String username, String password, Role role) {
+    public Patient(String username, String password, Role role, double age, int weight) {
         super(username, password, role);
+        this.age = age;
+        this.weight = weight;
     }
 
     public String getAccountId() {

@@ -41,7 +41,6 @@ public class Receptionist extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         requestAmbulanceBtn = new javax.swing.JButton();
         createPatientBtn = new javax.swing.JButton();
-        viewReportsBtn = new javax.swing.JButton();
         dashboardBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -85,25 +84,15 @@ public class Receptionist extends javax.swing.JFrame {
         });
         jPanel1.add(createPatientBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
 
-        viewReportsBtn.setBackground(new java.awt.Color(61, 118, 125));
-        viewReportsBtn.setForeground(new java.awt.Color(255, 255, 255));
-        viewReportsBtn.setText("View Reports");
-        viewReportsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewReportsBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(viewReportsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
-
         dashboardBtn.setBackground(new java.awt.Color(61, 118, 125));
         dashboardBtn.setForeground(new java.awt.Color(255, 255, 255));
-        dashboardBtn.setText("Dashboard");
+        dashboardBtn.setText("Hospital Location");
         dashboardBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dashboardBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
+        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,11 +127,6 @@ public class Receptionist extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new ResCreatePatient(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_createPatientBtnActionPerformed
-
-    private void viewReportsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewReportsBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new ResViewReport(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_viewReportsBtnActionPerformed
 
     private void dashboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnActionPerformed
         // TODO add your handling code here:
@@ -202,6 +186,5 @@ public class Receptionist extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JButton requestAmbulanceBtn;
-    private javax.swing.JButton viewReportsBtn;
     // End of variables declaration//GEN-END:variables
 }

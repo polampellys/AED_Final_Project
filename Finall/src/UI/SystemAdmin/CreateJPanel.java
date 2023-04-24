@@ -99,6 +99,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-lock-30.png"))); // NOI18N
 
         jComboBox1.setForeground(new java.awt.Color(153, 204, 204));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         createBtn.setBackground(new java.awt.Color(153, 204, 204));
         createBtn.setForeground(new java.awt.Color(54, 125, 118));
@@ -205,6 +210,10 @@ public class CreateJPanel extends javax.swing.JPanel {
              }
         }
     }//GEN-LAST:event_createBtnActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

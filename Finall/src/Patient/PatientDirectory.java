@@ -27,8 +27,8 @@ public class PatientDirectory {
     }
     
     
-    public Patient createUserAccount(String name, String password, Role role, String bp) {
-        Patient user = new Patient(name, password, role);
+    public Patient createUserAccount(String name, String password, Role role, String bp, double age, int weight) {
+        Patient user = new Patient(name, password, role, age, weight);
         user.setBp(bp);
         this.patientlist.add(user);
         return user;

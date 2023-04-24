@@ -44,7 +44,6 @@ public class AmbulanceDriver extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        profileBtn = new javax.swing.JButton();
         vehiclesRequestBtn = new javax.swing.JButton();
         dashboardBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
@@ -69,16 +68,6 @@ public class AmbulanceDriver extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-user-24.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 24, -1, 40));
 
-        profileBtn.setBackground(new java.awt.Color(61, 118, 125));
-        profileBtn.setForeground(new java.awt.Color(255, 255, 255));
-        profileBtn.setText("Profile");
-        profileBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(profileBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
-
         vehiclesRequestBtn.setBackground(new java.awt.Color(61, 118, 125));
         vehiclesRequestBtn.setForeground(new java.awt.Color(255, 255, 255));
         vehiclesRequestBtn.setText("Vehicle's Requests");
@@ -97,7 +86,7 @@ public class AmbulanceDriver extends javax.swing.JFrame {
                 dashboardBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
+        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,11 +111,6 @@ public class AmbulanceDriver extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new DriverProfile(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_profileBtnActionPerformed
 
     private void vehiclesRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehiclesRequestBtnActionPerformed
         // TODO add your handling code here:
@@ -189,7 +173,6 @@ public class AmbulanceDriver extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutBtn;
-    private javax.swing.JButton profileBtn;
     private javax.swing.JButton vehiclesRequestBtn;
     // End of variables declaration//GEN-END:variables
 }

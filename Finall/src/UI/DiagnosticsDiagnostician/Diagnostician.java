@@ -43,7 +43,6 @@ public class Diagnostician extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         assignPatientsBtn = new javax.swing.JButton();
         lendMachinesBtn = new javax.swing.JButton();
-        generateReportBtn = new javax.swing.JButton();
         dashboardBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -87,16 +86,6 @@ public class Diagnostician extends javax.swing.JFrame {
         });
         jPanel1.add(lendMachinesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
 
-        generateReportBtn.setBackground(new java.awt.Color(61, 118, 125));
-        generateReportBtn.setForeground(new java.awt.Color(255, 255, 255));
-        generateReportBtn.setText("Generate Reports");
-        generateReportBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generateReportBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(generateReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
-
         dashboardBtn.setBackground(new java.awt.Color(61, 118, 125));
         dashboardBtn.setForeground(new java.awt.Color(255, 255, 255));
         dashboardBtn.setText("Dashboard");
@@ -105,7 +94,7 @@ public class Diagnostician extends javax.swing.JFrame {
                 dashboardBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
+        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,11 +129,6 @@ public class Diagnostician extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new DiaLendMachines(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_lendMachinesBtnActionPerformed
-
-    private void generateReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateReportBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new DiaReports(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_generateReportBtnActionPerformed
 
     private void dashboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnActionPerformed
         // TODO add your handling code here:
@@ -195,7 +179,6 @@ public class Diagnostician extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignPatientsBtn;
     private javax.swing.JButton dashboardBtn;
-    private javax.swing.JButton generateReportBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

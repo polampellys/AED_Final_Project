@@ -42,8 +42,6 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         viewUserBtn = new javax.swing.JButton();
         createStoreBtn = new javax.swing.JButton();
-        updateUserBtn = new javax.swing.JButton();
-        deleteUserBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -86,26 +84,6 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(createStoreBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 200, 43));
-
-        updateUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        updateUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        updateUserBtn.setText("Update Users");
-        updateUserBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateUserBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(updateUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
-
-        deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        deleteUserBtn.setText("Delete Users");
-        deleteUserBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteUserBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 200, 43));
 
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,16 +128,6 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new PharmaCreateStore(this.applicationSystem, this.userAccount));
     }//GEN-LAST:event_createStoreBtnActionPerformed
-
-    private void updateUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateUserBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new PharmaUpdate(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_updateUserBtnActionPerformed
-
-    private void deleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new PharmaDelete(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_deleteUserBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
@@ -211,7 +179,6 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createCompanyBtn;
     private javax.swing.JButton createStoreBtn;
-    private javax.swing.JButton deleteUserBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -219,7 +186,6 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton logoutBtn;
-    private javax.swing.JButton updateUserBtn;
     private javax.swing.JButton viewUserBtn;
     // End of variables declaration//GEN-END:variables
 }

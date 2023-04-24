@@ -45,8 +45,6 @@ public class AmbulancePOC extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         assignDriversBtn = new javax.swing.JButton();
         createVehiclesBtn = new javax.swing.JButton();
-        dashboardBtn = new javax.swing.JButton();
-        deleteUserBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -89,26 +87,6 @@ public class AmbulancePOC extends javax.swing.JFrame {
         });
         jPanel1.add(createVehiclesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 200, 43));
 
-        dashboardBtn.setBackground(new java.awt.Color(61, 118, 125));
-        dashboardBtn.setForeground(new java.awt.Color(255, 255, 255));
-        dashboardBtn.setText("Dashboard");
-        dashboardBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dashboardBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(dashboardBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 200, 43));
-
-        deleteUserBtn.setBackground(new java.awt.Color(61, 118, 125));
-        deleteUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        deleteUserBtn.setText("Delete Users");
-        deleteUserBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteUserBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(deleteUserBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 200, 43));
-
         logoutBtn.setBackground(new java.awt.Color(61, 118, 125));
         logoutBtn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBtn.setText("LOGOUT");
@@ -138,16 +116,6 @@ public class AmbulancePOC extends javax.swing.JFrame {
         this.setVisible(false);
         AmbulanceLoginJFrame aj = new AmbulanceLoginJFrame(this.applicationSystem, this.userAccount);
     }//GEN-LAST:event_logoutBtnActionPerformed
-
-    private void deleteUserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteUserBtnActionPerformed
-        // TODO add your handling code here:
-        //        jSplitPane1.setRightComponent(new PharmaDelete(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_deleteUserBtnActionPerformed
-
-    private void dashboardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new POCDashboard(this.applicationSystem, this.userAccount));
-    }//GEN-LAST:event_dashboardBtnActionPerformed
 
     private void createVehiclesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createVehiclesBtnActionPerformed
         // TODO add your handling code here:
@@ -198,8 +166,6 @@ public class AmbulancePOC extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignDriversBtn;
     private javax.swing.JButton createVehiclesBtn;
-    private javax.swing.JButton dashboardBtn;
-    private javax.swing.JButton deleteUserBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
