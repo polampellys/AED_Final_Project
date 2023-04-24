@@ -16,8 +16,9 @@ UML Class diagram of the project:
 
 Contributions:
 
-Saketh Sai:
+Saketh Sai: Pharmacy enterprise, Hospital enterprise, Component Diagram 
 
-Suhasini Polampelly:
+Suhasini Polampelly: Diagnostics enterprise, Hospital Enterprise, Presentation
 
-Sashank Machiraju:
+Sashank Machiraju: Ambulance enterprise, Hospital Enterprise, UML Diagram
+
