@@ -69,7 +69,7 @@ public class PharmacySystemAdmin extends javax.swing.JFrame {
 
         viewUserBtn.setBackground(new java.awt.Color(61, 118, 125));
         viewUserBtn.setForeground(new java.awt.Color(255, 255, 255));
-        viewUserBtn.setText("View Users");
+        viewUserBtn.setText("Dashboard");
         viewUserBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewUserBtnActionPerformed(evt);
