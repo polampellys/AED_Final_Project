@@ -70,7 +70,7 @@ public class DiagDelete extends javax.swing.JPanel {
           false);
 
         CategoryPlot plot = chart.getCategoryPlot();
-        plot.setBackgroundPaint(new Color(0x99, 0xCC, 0xCC));
+        plot.setBackgroundPaint(Color.WHITE);
         plot.setRangeGridlinePaint(Color.BLACK);
         plot.setDomainGridlinePaint(Color.BLACK);
 
@@ -81,7 +81,7 @@ public class DiagDelete extends javax.swing.JPanel {
         rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 
         BarRenderer renderer = (BarRenderer) plot.getRenderer();
-        renderer.setSeriesPaint(0, new Color(0x3D, 0x76, 0x7D));
+        renderer.setSeriesPaint(0, new Color(0x99, 0xCC, 0xCC));
 
         ChartPanel chartPanel = new ChartPanel(chart);
         jPanel2.setLayout(new BorderLayout());
