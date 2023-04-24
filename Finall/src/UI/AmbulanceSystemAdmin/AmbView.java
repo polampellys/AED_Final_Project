@@ -82,7 +82,7 @@ public class AmbView extends javax.swing.JPanel {
         rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 
         BarRenderer renderer = (BarRenderer) plot.getRenderer();
-        renderer.setSeriesPaint(0, Color.BLUE);
+        renderer.setSeriesPaint(0, new Color(0x99, 0xcc, 0xcc));
 
         ChartPanel chartPanel = new ChartPanel(chart);
         jPanel2.setLayout(new BorderLayout());
