@@ -168,10 +168,12 @@ public class PharStoreViewPatients extends javax.swing.JPanel {
         
         
         int updatedQuantity = pr.getMedicine().getQuantity() -  pr.getQuantity();
-        
         pr.getMedicine().setQuantity(updatedQuantity);
-        store.getPharmacyrequestDirectory().getPharmacylist().remove(row);
         
+        int newRevenue = store.getRevenue() + pr.getQuantity() *2;
+        store.setRevenue(newRevenue);
+  
+        store.getPharmacyrequestDirectory().getPharmacylist().remove(row);      
         JOptionPane.showMessageDialog(null, "Succesfully Prescribed");
         
         

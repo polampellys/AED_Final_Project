@@ -218,6 +218,8 @@ public class DriverVehicleRequest extends javax.swing.JPanel {
         driver.increaseTrip();
         driver.getAmbulanceRequestDirectory().getAmbulanceRequestList().remove(row);
         JOptionPane.showMessageDialog(null, "Succesfully dropped of Patient");
+        PopulateTable();
+        PopulateDoctor();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -30,6 +30,8 @@ public class DriverDashboard extends javax.swing.JPanel {
         this.applicationSystem = applicationSystem;
         this.driver =  (Driver) userAccount;
         this.populateVehicle();
+        this.populateTrips();
+        this.populateRevenue();
     }
     
     public void populateVehicle()
@@ -46,6 +48,20 @@ public class DriverDashboard extends javax.swing.JPanel {
         this.jLabel2.setText(name);
         
     }
+    
+    public void populateTrips()
+    {
+        
+        jLabel4.setText(String.valueOf(driver.getTrips()));
+        
+    }
+    
+    public void populateRevenue()
+    {
+        
+        
+         jLabel6.setText(String.valueOf(driver.getTrips() * 10));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +76,10 @@ public class DriverDashboard extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -91,6 +111,14 @@ public class DriverDashboard extends javax.swing.JPanel {
 
         jLabel2.setText("jLabel2");
 
+        jLabel3.setText("Total Trips");
+
+        jLabel4.setText("jLabel4");
+
+        jLabel5.setText("Total Revenue");
+
+        jLabel6.setText("jLabel6");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,9 +126,15 @@ public class DriverDashboard extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(189, 189, 189)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
                 .addGap(69, 69, 69)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,7 +146,15 @@ public class DriverDashboard extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -121,6 +163,10 @@ public class DriverDashboard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

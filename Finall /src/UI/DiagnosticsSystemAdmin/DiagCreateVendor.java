@@ -8,6 +8,7 @@ import UI.AmbulanceSystemAdmin.*;
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
 import Roles.DiagnosticianRole;
+import Roles.VendorsRole;
 import User.UserAccount;
 import javax.swing.JOptionPane;
 
@@ -161,11 +162,11 @@ public class DiagCreateVendor extends javax.swing.JPanel {
             String companyName = Companyname.getText();
 
             if(this.applicationSystem.getDiagnosticUserAccountDirectory().getVendorsUserDirectory().checkUniqueUsername(userName)){
-                this.applicationSystem.getDiagnosticUserAccountDirectory().getVendorsUserDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new DiagnosticianRole(),companyName);
+                this.applicationSystem.getDiagnosticUserAccountDirectory().getVendorsUserDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new VendorsRole(),companyName);
                 //System.out.println("HI"+ this.applicationSystem.getHospitalUserAccountDirectory().getHospitaluseraccountlist().size());
-                JOptionPane.showMessageDialog(null, "Created New Diagnostician");
+                JOptionPane.showMessageDialog(null, "Created New Vendors");
             }else{
-                JOptionPane.showMessageDialog(null, "Diagnostician with same credentials already exists");
+                JOptionPane.showMessageDialog(null, "Vendor with same credentials already exists");
             }
         }
     }//GEN-LAST:event_createBtnActionPerformed

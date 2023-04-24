@@ -6,6 +6,7 @@ package UI.DiagnosticsDiagnostician;
 
 import UI.SystemAdmin.*;
 import ApplicationSystem.ApplicationSystem;
+import Diagnostic.Diagnosticians;
 import User.UserAccount;
 
 /**
@@ -19,12 +20,22 @@ public class DiaDashboard extends javax.swing.JPanel {
      */
     
     ApplicationSystem applicationSystem;
-    UserAccount userAccount;
+    Diagnosticians diagnostician;
     
     public DiaDashboard(ApplicationSystem applicationSystem, UserAccount userAccount) {
         initComponents();
         this.applicationSystem = applicationSystem;
-        this.userAccount = userAccount;
+        this.diagnostician = (Diagnosticians) userAccount;
+        
+        
+        populateRevenue();
+    }
+    
+    public void populateRevenue()
+    {
+        
+        
+         jLabel6.setText(String.valueOf(diagnostician.getTests() * 20));
     }
 
     /**
@@ -38,6 +49,8 @@ public class DiaDashboard extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -65,24 +78,40 @@ public class DiaDashboard extends javax.swing.JPanel {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
+        jLabel1.setText("Revenue");
+
+        jLabel6.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(286, 286, 286)
+                .addComponent(jLabel1)
+                .addGap(109, 109, 109)
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(94, 94, 94)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel6))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

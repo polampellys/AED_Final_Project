@@ -9,7 +9,7 @@ import ApplicationSystem.ApplicationSystem;
 import Roles.AmbulanceSystemAdminRole;
 import Roles.DoctorRole;
 import Roles.HospitalSystemAdminRole;
-import Roles.NurseRole;
+//import Roles.NurseRole;
 import Roles.ReceptionistRole;
 import Roles.Role;
 import User.UserAccount;
@@ -95,7 +95,7 @@ public class HosCreate extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/images/icons8-lock-30.png"))); // NOI18N
 
         jComboBox1.setForeground(new java.awt.Color(153, 204, 204));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", "Nurse", "Receptionist" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor", " ", "Receptionist" }));
 
         createBtn.setBackground(new java.awt.Color(153, 204, 204));
         createBtn.setForeground(new java.awt.Color(54, 125, 118));
@@ -173,15 +173,15 @@ public class HosCreate extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null, "Doctor with same credentials already exists");
                  }
              }
-            //creating nurse
-            if(jComboBox1.getSelectedItem().equals("Nurse")){
-                 if(this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().checkUniqueUsername(userName)){
-                     this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new NurseRole());
-                     JOptionPane.showMessageDialog(null, "Created New Nurse");
-                 }else{
-                        JOptionPane.showMessageDialog(null, "Nurse with same credentials already exists");
-                 }
-             }
+//            //creating nurse
+//            if(jComboBox1.getSelectedItem().equals("Nurse")){
+//                 if(this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().checkUniqueUsername(userName)){
+//                     this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().createUserAccount(userNameField.getText(), passwordField.getText(), new NurseRole());
+//                     JOptionPane.showMessageDialog(null, "Created New Nurse");
+//                 }else{
+//                        JOptionPane.showMessageDialog(null, "Nurse with same credentials already exists");
+//                 }
+//             }
             //creating Receptionist
             if(jComboBox1.getSelectedItem().equals("Receptionist")){
                  if(this.applicationSystem.getHospitalUserAccountDirectory().getReceptionistDirectory().checkUniqueUsername(userName)){

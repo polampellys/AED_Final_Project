@@ -134,7 +134,7 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
 
         userComboBox.setBackground(new java.awt.Color(61, 118, 125));
         userComboBox.setForeground(new java.awt.Color(255, 255, 255));
-        userComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Doctor", "Nurse", "Receptionist" }));
+        userComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Doctor", "Receptionist" }));
         jPanel3.add(userComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 351, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -195,13 +195,13 @@ public class HospitalLoginJFrame extends javax.swing.JFrame {
             this.setVisible(false); 
         }
         
-        if("Nurse".equalsIgnoreCase(userType) && (this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
-            
-            Nurse nurse = this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
-            foundUser = true;
-            nurse.getRole().createWorkArea(applicationSystem, nurse);
-            this.setVisible(false); 
-        }
+//        if("Nurse".equalsIgnoreCase(userType) && (this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
+//            
+//            Nurse nurse = this.applicationSystem.getHospitalUserAccountDirectory().getNurseDirectory().authenticateUser(userNameField.getText(), passwordField.getText()); 
+//            foundUser = true;
+//            nurse.getRole().createWorkArea(applicationSystem, nurse);
+//            this.setVisible(false); 
+//        }
         
         if("Receptionist".equalsIgnoreCase(userType) && (this.applicationSystem.getHospitalUserAccountDirectory().getReceptionistDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null)){ 
             
